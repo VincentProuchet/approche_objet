@@ -1,5 +1,6 @@
 package utils;
 
+// TP 04
 public class TestMethodeStatic {
 
 	public static void main(String[] args) {
@@ -15,7 +16,7 @@ public class TestMethodeStatic {
 		// ou un if- else if - else
 		System.out.println(Integer.compare(a, b));
 		
-		// affiche directmeent le plus grand
+		// affiche directement le plus grand
 		System.out.println(Integer.max(a, b));
 		
 
