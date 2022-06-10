@@ -1,5 +1,7 @@
 package fr.diginamic.banque.entites;
-
+/*
+ * va représenter un compte de dépôt courant
+ */
 public class Compte  extends Object {
 	
 	private long numero;
