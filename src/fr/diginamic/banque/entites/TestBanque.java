@@ -7,8 +7,8 @@ public class TestBanque {
 		Compte compte1 = new Compte(154_681_308, 150);
 		Compte compte2 = new Compte(248_468_794, 200);
 		
-		compte1.Solde();
-		compte2.Solde();
+		System.out.println(compte1);
+		System.out.println(compte2);
 		
 	}
 

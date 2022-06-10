@@ -1,6 +1,6 @@
 package fr.diginamic.banque.entites;
 
-public class Compte {
+public class Compte  extends Object {
 	
 	private long numero;
 	private int solde;
@@ -19,10 +19,8 @@ public class Compte {
 		return this.solde;
 	}
 	
-	public void Solde() {
-		System.out.println(" Le compte : "+this.numero +"\n"
-				+ "a un solde de : " + this.solde);
-		
+	public String toString() {
+		return " Le compte : "+ this.numero +" a un solde de : "+ this.solde;		
 	}
 	
 	
