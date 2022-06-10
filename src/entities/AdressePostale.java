@@ -17,4 +17,11 @@ public class AdressePostale {
 		this.ville = ville;
 		
 	}
+	
+	public void AfficheAdresse() {
+		System.out.println( this.numeroDeRue + " " + this.rue + "\n"
+				+ this.codePostal +" "+ this.ville
+				+ "\n"
+				);
+	}
 }

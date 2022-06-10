@@ -9,6 +9,6 @@ il y a X TP dans ce module<br>
 <br>
 TP N°1 CREER ET UTILISER DES CLASSES <br>
 TP N°2 INSTANCIATION ET CONSTRUCTEURS <br>
- <br>
-
+TP N°3 INSTANCES ET METHODES <br>
+<br>
 </p>

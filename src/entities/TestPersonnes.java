@@ -11,9 +11,14 @@ public class TestPersonnes {
 		Personnes humain2 = new Personnes("Shlassosvensky", "Piotr"
 				, 6, " de la bataille en braise", 34420,"Portiragnes");
 		
+		humain1.AfficherIdentite();
 		
+		humain1.SetPrenom("Robert");
+		humain1.AfficherIdentite();
+		humain1.GetAdresse().AfficheAdresse();
 		
-		
+		humain2.AfficherIdentite();
+		humain2.GetAdresse().AfficheAdresse();
 		
 		
 		
