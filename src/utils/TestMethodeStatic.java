@@ -5,8 +5,8 @@ public class TestMethodeStatic {
 
 	public static void main(String[] args) {
 		String chaine = "14";
-		int nombre = java.lang.Integer.parseInt(chaine);
-		
+		int nombre = Integer.parseInt(chaine);
+		nombre = nombre*2;
 		System.out.println(nombre);
 		
 		int a=45 ;

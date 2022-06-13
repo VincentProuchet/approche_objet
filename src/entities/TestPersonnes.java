@@ -14,8 +14,9 @@ public class TestPersonnes {
 		humain1.AfficherIdentite();
 		
 		humain1.SetPrenom("Robert");
-		humain1.AfficherIdentite();
-		humain1.GetAdresse().AfficheAdresse();
+		System.out.println(humain1 + " " +    humain1.GetAdresse());
+		//humain1.AfficherIdentite();
+		//humain1.GetAdresse().AfficheAdresse();
 		
 		humain2.AfficherIdentite();
 		humain2.GetAdresse().AfficheAdresse();

@@ -1,21 +1,26 @@
 /**
  * 
  */
-package geometrie;
+package fr.diginamic.banque.entites;
 
-/**
+import geometrie.ObjetGeometrique;
+
+/** TP J3
  * @author Vincent
  *
+ *	J'ai dût le déplacer à cause d'une collision de type
  */
 public class Cercle implements ObjetGeometrique{
 	//pi *r*r
-	private float rayon;
+	private double rayon;
 
 
-	public Cercle(int rayon) {
+	public Cercle(double rayon) {
 		this.rayon = rayon;
 	}
-	
+	public double GetRayon() {
+		return this.rayon;
+	}
 		
 	public double perimetre() {
 		
