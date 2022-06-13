@@ -2,7 +2,7 @@ package fr.diginamic.essais;
 
 import fr.diginamic.operations.CalculMoyenne;
 
-/**
+/** TP J3
  * Test la classe CalculMoyenne
  * 
  * @author Vincent

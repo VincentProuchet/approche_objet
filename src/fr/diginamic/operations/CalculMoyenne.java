@@ -1,5 +1,8 @@
 package fr.diginamic.operations;
-
+/** TP J3
+ *  * @author Vincent
+ *
+ */
 public class CalculMoyenne {
 	double[] valeurs;
 

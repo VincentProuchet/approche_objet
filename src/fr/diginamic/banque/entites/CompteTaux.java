@@ -1,5 +1,5 @@
 package fr.diginamic.banque.entites;
-/*
+/* TP 8
  * 
  */
 public class CompteTaux extends Compte {

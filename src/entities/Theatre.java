@@ -5,12 +5,16 @@ package entities;
  *
  */
 public class Theatre {
-	String nom;
-	int capaciteMaxi = 2000; // nb de personne
-	int totalClientsInscripts;
-	double chiffreDAffaire; // recette totales du théatre
-	
-	
+	private String nom;
+	private int capaciteMaxi = 2000; // nb de personne
+	private int totalClientsInscripts;
+	private double chiffreDAffaire; // recette totales du théatre
+	/**	 
+	 * @param nom du theatre
+	 */
+	public Theatre(String nom) {
+		this.nom = nom;
+	}
 	
 	public void Incrire(int nb,double prix) {
 		if (this.totalClientsInscripts + nb <= this.capaciteMaxi) {
@@ -22,4 +26,13 @@ public class Theatre {
 		}
 	}
 	
+	public int totalInscripts() {
+		return this.totalClientsInscripts;
+}
+	public double Recette() {
+		return this.chiffreDAffaire;
+	}
+	public String GetNom() {
+		return this.nom;
+	}
 }
