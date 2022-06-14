@@ -1,6 +1,4 @@
-package entities2;
-
-import entities.AdressePostale;
+package entities;
 
 public class Personnes extends Object {
 	// identité

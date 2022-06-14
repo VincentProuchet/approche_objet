@@ -1,4 +1,4 @@
-package entities;
+package fr.diginamic.entities;
 /** TP J3
  * 
  * @author Vincent
@@ -9,10 +9,12 @@ public class Theatre {
 	private int capaciteMaxi = 2000; // nb de personne
 	private int totalClientsInscripts;
 	private double chiffreDAffaire; // recette totales du théatre
-	/**	 
+	/**
+	 * 
 	 * @param nom du theatre
+	 * @param capaciteMax 
 	 */
-	public Theatre(String nom) {
+	public Theatre(String nom,int capaciteMax) {
 		this.nom = nom;
 	}
 	

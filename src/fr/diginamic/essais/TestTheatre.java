@@ -1,6 +1,6 @@
 package fr.diginamic.essais;
 
-import entities.Theatre;
+import fr.diginamic.entities.Theatre;
 /** TP j3
  * Theatre
  * @author Vincent
@@ -9,7 +9,7 @@ import entities.Theatre;
 public class TestTheatre {
 
 	public static void main(String[] args) {
-		Theatre newPlace = new Theatre("The last theatre before the and of the world");
+		Theatre newPlace = new Theatre("The last theatre before the and of the world",2000);
 		
 		
 		newPlace.Incrire(200, 50);

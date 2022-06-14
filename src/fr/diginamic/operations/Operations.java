@@ -22,7 +22,7 @@ public class Operations {
 			if (b != 0) {
 				resultat = a / b;
 			} else {
-				System.out.println("division par zéro impossible");
+				System.err.println("division par zéro impossible");
 			}
 			break;
 		default:

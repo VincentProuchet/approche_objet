@@ -1,7 +1,5 @@
 package entities;
 
-import entities2.Personnes;
-
 public class TestPersonnes {
 
 	public static void main(String[] args) {
