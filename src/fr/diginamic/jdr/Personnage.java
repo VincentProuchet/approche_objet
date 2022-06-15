@@ -1,24 +1,23 @@
 package fr.diginamic.jdr;
 
-import java.util.Random;
-
-public abstract class Personnage {
-
-	private int pointsDeVie;
+public class Personnage extends Creature{
+	int score;
+	static int pdvMin  	=20;
+	static int pdvMaxi		=50;
 	
-	private int force;
-	
-	public Personnage(int forceMini, int forceMaxi,int pdvMini,int pdvMaxi) {
-		Random rd = new Random();
-		this.force = rd.nextInt(forceMini,forceMaxi);
-		this.pointsDeVie = rd.nextInt(pdvMini,pdvMaxi);
+	static int forceMini	=12;
+	static int forceMaxi	=18;
+	public Personnage() {
+		super(Personnage.forceMini,Personnage.forceMaxi,Personnage.pdvMin,Personnage.pdvMaxi );
+		this.score = 0;
+		
 		
 	}
-	public int getPointsDeVie() {
-		return this.pointsDeVie;
+	public int getScore() {
+		return this.score;
 	}
-	
-	public int getForce() {
-		return this.force;
+	public void Score(Creature creature) {
+		this.score += creature.getPoints();
 	}
+
 }
