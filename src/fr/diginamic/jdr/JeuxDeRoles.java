@@ -42,9 +42,12 @@ public class JeuxDeRoles {
 						);
 				break;
 			case 2:
+				// QoL
+				// boucle automatique
+				//
 				do {
 					jeux.combat();
-				}while(jeux.joueur.getPointsDeVie()>0);
+				} while (jeux.joueur.getPointsDeVie() > 0);
 				break;			
 			case 3:
 				jeux.afficheScore();
