@@ -103,6 +103,7 @@ public class TestJdr {
 		return creatures;
 	}
 	
+	
 	public static void attaques(Creature[] creature) {
 		for (int i = 0; i < creature.length; i++) {
 			if (creature[i] != null) {

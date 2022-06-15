@@ -4,16 +4,19 @@ package fr.diginamic.banque.entites;
  */
 public class CompteTaux extends Compte {
 	
-	private int txRemuneration;
+	private float txRemuneration;
 	
-	public CompteTaux(String numero, int solde, int tx) {
+	public CompteTaux(String numero, int solde, float tx) {
 		super(numero, solde);
 		this.txRemuneration = tx;
 	}
 	
-	@Override
-	public String toString() {
-		return (super.toString() +" et a un taux de : " + this.txRemuneration +"%" ); 
-	}
+	
+	  @Override
+	  public String toString() { 
+		  return (super.toString()
+				  +" et a un taux de : " 
+				  + this.txRemuneration +"%" ); }
+	 
 
 }
