@@ -15,13 +15,13 @@ public class JeuxDeRoles {
 	public static void main(String[] args) {
 		
 		JeuxDeRoles.jeux = new JeuxDeRoles();
-		jeux.creationDePersonnage();
+		//jeux.creationDePersonnage();
 		
 		///////////////////////
 		// boucle principale //
 		///////////////////////
 		do {			
-			clearConsole();
+			
 			jeux.MenuPrincipal();
 			try {
 				String input = jeux.UserEntry.next();
@@ -34,21 +34,17 @@ public class JeuxDeRoles {
 		switch(jeux.selection ) {
 			case 1:
 				jeux.creationDePersonnage();
-				jeux.creationEnnemi();
-				
-				System.out.println("\n Un "
-								+ jeux.ennemie.getClass().getSimpleName()
-								+ " est devant vous \n"
-						);
 				break;
 			case 2:
-				// QoL
-				// boucle automatique
-				//
-				do {
-					jeux.combat();
-				} while (jeux.joueur.getPointsDeVie() > 0);
-				break;			
+				if (jeux.joueur != null) {
+					// QoL
+					// boucle automatique
+					//
+					do {
+						jeux.combat();
+					} while (jeux.joueur.getPointsDeVie() > 0);
+				}
+				break;	
 			case 3:
 				jeux.afficheScore();
 				break;
@@ -90,7 +86,6 @@ public class JeuxDeRoles {
 				+"\n force : " + jeux.joueur.getForce()
 				+"\n points de vie : " + jeux.joueur.getPointsDeVie()
 				+"\n");
-		jeux.creationEnnemi();
 	}
 	/** créer une créature selectionnée aléatoirement
 	 * 
@@ -111,7 +106,10 @@ public class JeuxDeRoles {
 			break;
 
 		}
-		
+		String rapport = "\n Un " 
+				+ this.ennemie.getClass().getSimpleName()
+				+ " apparait";
+		System.out.println(rapport);
 		
 	}
 	/**
@@ -121,20 +119,27 @@ public class JeuxDeRoles {
 		// TODO
 		if(jeux.joueur != null) {
 			System.out.println(
-					"score : " +
+					"Vous avez : " +
 					((Personnage) jeux.joueur).getScore()
-					+"\n");
+					+" points \n");
 		}
 	}
 	/**
 	 * 
 	 */
 	public void combat() {
+		// controle sur etat de l'ennemi avant combatS
+		if(this.ennemie == null) {
+			this.creationEnnemi();;
+		}
+		if(this.ennemie.getPointsDeVie()<=0) {
+			this.creationEnnemi();
+		}
 		String rapport = "\n Le personnage est mort"
 				+ "vous devez en créer un nouveau "
 				+ "pour combattre";
 		if (this.joueur.getPointsDeVie() > 0) {
-			
+				rapport = "";
 				int attaqueJoueur = this.joueur.attaque();
 				int attaqueEnnemie = this.ennemie.attaque();
 				
@@ -145,52 +150,56 @@ public class JeuxDeRoles {
 					// si l'ennemi meurt
 					if (this.ennemie.getPointsDeVie() <= 0) {
 						
-						rapport ="\n le "
-								+ this.ennemie.getClass().getSimpleName() + " est mort "
-								;
 						// on attribue les points au personnage
 						this.joueur.Score(this.ennemie);
+						// affichage du rapport de combat
+						this.rapportDeCombat();						
 						// on créer un nouvel ennemi
 						this.creationEnnemi();
-						rapport += "\n Un " 
-								+ this.ennemie.getClass().getSimpleName()
-								+ " apparait";
+						
 						
 					}
 					else {
-						rapport = "\n vous blessez le " 
-								+ this.ennemie.getClass().getSimpleName()
-								+ "\n il lui reste " 
-								+ this.ennemie.getPointsDeVie()
-								;
+						/*
+						 * rapport = "\n vous blessez le " + this.ennemie.getClass().getSimpleName() +
+						 * "\n il lui reste " + this.ennemie.getPointsDeVie() ;
+						 */
 					}
 				} 
 				// si le joueur perd la manche
 				else {
 					this.joueur.prendreDegat(attaqueJoueur - attaqueEnnemie);
-					rapport = "\n le " 
-							+ this.ennemie.getClass().getSimpleName() 
-							+ " blesse votre personnage "
-							+ "\n il lui reste " 
-							+ this.joueur.getPointsDeVie();
+					/*
+					 * rapport = "\n le " + this.ennemie.getClass().getSimpleName() +
+					 * " blesse votre personnage " + "\n il lui reste " +
+					 * this.joueur.getPointsDeVie();
+					 */
 					if(this.joueur.getPointsDeVie()<= 0) {
-						rapport += "\n"
-								+ "votre personage est mort."
+						rapport = "\n votre personage est mort."
+								+ "\n vous avons gagné "+ this.joueur.getScore()+" points"
+								+ "\n"
 								;
+						System.out.println(rapport);
 					}
 				
 				}
-				System.out.println(rapport);
-
-		
-		
-		
 		}
 		// si le personnage est déjà mort
 		else {
 			System.out.println(rapport);
 			
 		}
+	}
+	
+	public void rapportDeCombat() {
+		String rapport = "Vous avez vaincu le "+ this.ennemie.getClass().getSimpleName()
+				+ "\n et gagné "+ this.ennemie.getPoints() +" points"
+				+ "\n votre score et de "+ this.joueur.getScore() + " points";
+		
+		System.out.println(rapport);
+				
+				
+		
 	}
 	/**
 	 * 
