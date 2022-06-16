@@ -47,17 +47,19 @@ public class TestListeInt {
 			
 			
 		}
-		Iterator<Integer> iter = nombres.iterator();
-		// ne fonctionne pas
+		
+		// ne fonctionne pas edans ce cas
+		//Iterator<Integer> iter = nombres.iterator();
 //		while(iter.hasNext()) {
 //			Integer number = iter.next();
 //			nombres.set(iter, Math.abs(number));
 //		}
-		// ne fonctionne pas
+		//Ne fonctionne pas non plus dans ce cas
 //		for(Integer number: nombres) {
 //			number =  Math.abs(number);
 //		}
-//		
+	
+		
 		for(int i=0; i<nombres.size();i++) {
 			
 			nombres.set(i, Math.abs(nombres.get(i)));

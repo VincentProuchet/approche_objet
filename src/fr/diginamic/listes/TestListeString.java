@@ -1,6 +1,7 @@
 package fr.diginamic.listes;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class TestListeString {
@@ -16,12 +17,22 @@ public class TestListeString {
 			if(villes.get(i).length()> PlusGrandeLongueur.length()) {
 				PlusGrandeLongueur =villes.get(i); 
 			}
-			if(villes.get(i).startsWith("N")) {
-				villes.remove(i);
-			}
+		
 			// mise en majuscules
 			villes.set(i, villes.get(i).toUpperCase()   );
 		}
+		
+		// retrait des villes commençant par 
+		
+		Iterator<String> iter = villes.iterator();
+		
+		while(iter.hasNext()) {
+			String ville = iter.next();
+			if(ville.startsWith("N")) {
+				iter.remove();
+			}
+		}
+		
 		for(String list: villes) {
 			System.out.println(list);
 		}

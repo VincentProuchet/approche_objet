@@ -15,30 +15,30 @@ public class TestVille {
 		villes.add(new Ville("Lyon", 484_000));
 		villes.add(new Ville("Folx", 9_700));
 		villes.add(new Ville("Pau", 77_200));
-		villes.add(new Ville("Marsellle", 850_700));
+		villes.add(new Ville("Marseille", 850_700));
 		villes.add(new Ville("Tarbes", 40_600));
 		
 		Ville laPlusPeuplee = villes.get(0);
 		Ville laMoinsPeuplee = villes.get(0);
 		
-		for(int i=0; i<villes.size();i++) {
+		for(Ville ville : villes) {
 			// trouver la plus peuplée
-			if(villes.get(i).getPopulation()> laPlusPeuplee.getPopulation()) {
-				laPlusPeuplee =villes.get(i); 
+			if(ville.getPopulation()> laPlusPeuplee.getPopulation()) {
+				laPlusPeuplee =ville; 
 			}
 			// majuscule pour les villes de plus de 100 000 habitants
-			if(villes.get(i).getPopulation()> 100_000) {
-				villes.get(i).capitalizeNom(); 
+			if(ville.getPopulation()> 100_000) {
+				ville.capitalizeNom(); 
 			}
 			// trouver la moins peuplée
-			if(villes.get(i).getPopulation()< laMoinsPeuplee.getPopulation()) {
-				laMoinsPeuplee =villes.get(i);				
+			if(ville.getPopulation()< laMoinsPeuplee.getPopulation()) {
+				laMoinsPeuplee =ville;				
 			}
 			
 		}
 		villes.remove(laMoinsPeuplee);
 		for(Ville list: villes) {
-			System.out.println("- "+list.getNom()+", "+list.getPopulation()+" hab");
+			System.out.println("- "+list.getNom()+", "+list.getPopulation()+" habitants.");
 		}
 		
 	}
