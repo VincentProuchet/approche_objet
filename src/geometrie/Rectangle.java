@@ -1,5 +1,6 @@
 package geometrie;
-/**
+/** TP 9 
+ * interfaces faciles
  * @author Vincent
  *
  */

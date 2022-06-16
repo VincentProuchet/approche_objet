@@ -1,9 +1,7 @@
 /**
  * 
  */
-package fr.diginamic.banque.entites;
-
-import geometrie.ObjetGeometrique;
+package geometrie;
 
 /** TP J3
  * @author Vincent

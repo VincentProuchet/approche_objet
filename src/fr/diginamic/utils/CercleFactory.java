@@ -1,6 +1,6 @@
 package fr.diginamic.utils;
 
-import fr.diginamic.banque.entites.Cercle;
+import geometrie.Cercle;
 /**	TP J3
  * 
  * @author Vincent

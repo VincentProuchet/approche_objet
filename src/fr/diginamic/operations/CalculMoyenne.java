@@ -1,6 +1,7 @@
 package fr.diginamic.operations;
-/** TP J3
- *  * @author Vincent
+
+/**
+ * TP J3 * @author Vincent
  *
  */
 public class CalculMoyenne {
@@ -13,7 +14,7 @@ public class CalculMoyenne {
 			valeurs = new double[1];
 			// on place la dernière entrée à la fin
 			valeurs[0] = it;
-			
+
 		} else {
 			// on crée un tableau plus grand
 			double[] temp = new double[this.valeurs.length + 1];
@@ -21,26 +22,23 @@ public class CalculMoyenne {
 			for (int i = 0; i < this.valeurs.length; i++) {
 				temp[i] = this.valeurs[i];
 			}
-			
+
 			// on place la nouvelle valeur à la fin
-			temp[temp.length-1] = it;
+			temp[temp.length - 1] = it;
 			// et on écrase l'ancien tableau trop petit
 			this.valeurs = temp;
 			// le garbage collector s'occuperas du reste
 		}
 	}
-	
+
 	public double Calcul() {
 		double moyenne = 0;
-		
+
 		for (int i = 0; i < this.valeurs.length; i++) {
 			moyenne += this.valeurs[i];
 		}
 		return moyenne / this.valeurs.length;
-	
-		
-		
-		
+
 	}
 
 }

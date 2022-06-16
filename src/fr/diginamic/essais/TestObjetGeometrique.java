@@ -1,7 +1,11 @@
-package geometrie;
+package fr.diginamic.essais;
 
-/**
- * 
+import geometrie.Cercle;
+import geometrie.ObjetGeometrique;
+import geometrie.Rectangle;
+
+/** TP 9 
+ * interfaces faciles
  * @author Vincent
  *
  */
@@ -11,7 +15,7 @@ public class TestObjetGeometrique {
 		ObjetGeometrique[] formes = new ObjetGeometrique[2];
 
 		formes[0] = new geometrie.Rectangle(5, 4);
-		formes[1] = new fr.diginamic.banque.entites.Cercle(4);
+		formes[1] = new geometrie.Cercle(4);
 
 		for (int i = 0; i < formes.length; i++) {
 			System.out.println(formes[i].perimetre());

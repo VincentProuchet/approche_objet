@@ -1,4 +1,4 @@
-package entities;
+package fr.diginamic.entities;
 
 public class AdressePostale extends Object {
 	private int numeroRue;

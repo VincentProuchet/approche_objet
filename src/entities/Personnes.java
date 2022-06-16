@@ -1,5 +1,7 @@
 package entities;
 
+import fr.diginamic.entities.AdressePostale;
+
 public class Personnes extends Object {
 	// identité
 	private String nom;

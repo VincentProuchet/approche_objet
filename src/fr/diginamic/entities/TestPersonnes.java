@@ -1,4 +1,6 @@
-package entities;
+package fr.diginamic.entities;
+
+import entities.Personnes;
 
 public class TestPersonnes {
 
