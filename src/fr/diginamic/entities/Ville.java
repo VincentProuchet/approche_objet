@@ -1,13 +1,31 @@
 package fr.diginamic.entities;
 
 import java.util.List;
-
+/**
+ *  
+ * @author Vincent
+ *
+ */
 public class Ville implements Comparable<Ville>{
-	private String nom;
-	private String codeDepartement;
-	private String nomRegion;
-	private int populationTotale;
 	
+	private String codeDeRegion;
+	private String nomRegion;
+	
+	private String codeDepartement;
+	
+	private String codeDeCommune;
+	private String nom;
+
+	private int populationTotale;
+	/**
+	 * @obsolete
+	 * laissé pour compatibilité avec ancien code 
+	 * 
+	 * @param nom
+	 * @param codeDepartement
+	 * @param region
+	 * @param population
+	 */
 	public Ville(String nom,String codeDepartement, String region,String population ) {
 		this.nom =nom;
 		this.codeDepartement = codeDepartement;
@@ -17,10 +35,13 @@ public class Ville implements Comparable<Ville>{
 	
 	public Ville(String ligne) {
 		String[] data = ligne.split(";");
-		this.nom = data[6];
-		this.codeDepartement = data[2];
+		this.codeDeRegion = data[0];
 		this.nomRegion = data[1];
+		this.codeDepartement = data[2];
 		
+		
+		this.codeDeCommune = data[5];		
+		this.nom = data[6];
 		this.populationTotale = Integer.parseInt(data[data.length-1].trim().replaceAll(" ",""));
 	
 	}
@@ -53,7 +74,7 @@ public class Ville implements Comparable<Ville>{
 	public String toCSV() {
 		return this.nom+";"+this.codeDepartement+";"+this.nomRegion+";"+this.populationTotale+";";
 	}
-	
+	@Override
 	public String toString() {
 		return this.nom+"/"+this.codeDepartement+"/"+this.nomRegion+"/"+this.populationTotale+"/";
 	}
@@ -63,24 +84,22 @@ public class Ville implements Comparable<Ville>{
 	public String nom() {
 		return this.nom;
 	}
+	public String nomRegion() {
+		return this.nomRegion;
+	}
+	public String codeDeCommune() {
+		return this.codeDeCommune;
+	}
+	public String codeDeRegion() {
+		return this.codeDeRegion;
+	}
+	public String codeDeDepartement() {
+		return this.codeDepartement;
+	}
 
 	@Override
 	public int compareTo(Ville o) {
 		return this.nom.compareTo(o.nom());
-	}
-//	@Override
-//	public int compareTo(Ville o) {
-//		if(this.populationTotale> o.populationTotale()) {
-//			return -1;
-//		}
-//		else if(this.populationTotale< o.populationTotale()) {
-//			return 1;
-//		}
-//		
-//		
-//		
-//		return 0;
-//	}
-	
+	}	
 	
 }

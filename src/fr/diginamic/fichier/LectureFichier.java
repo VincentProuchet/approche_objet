@@ -12,7 +12,17 @@ import java.util.Iterator;
 import java.util.List;
 
 import fr.diginamic.entities.Ville;
+import fr.diginamic.tri.ComparatorHabitant;
+import fr.diginamic.tri.ComparatorNom;
 
+/** 
+ * TP 15
+ * TP 13
+ * LES TRIS
+ * 
+ * @author Vincent
+ *
+ */
 public class LectureFichier {
 
 	public static void main(String[] args) throws IOException {
@@ -29,9 +39,13 @@ public class LectureFichier {
 				// TODO: I will ignore that
 			}
 		}
+		// appelle tdu compareTo intégré de la classe Ville 
+		// celle-ci va trier par ordre alphabétique
 		Collections.sort(villes);
-		// un jolie ligne d'entêt pour mon tableau
-		newLignes.add(" nom de la commune ; code département; Région; poulation totale;");
+		
+		// un jolie ligne d'entête pour mon tableau excel
+		newLignes.add(" nom de la commune ; code département; Région; poulation totale;");		
+		// mise en forme du nouveau document
 		for(Ville v: villes) {
 			if(v.populationTotale()>25000) {
 				newLignes.add(v.toCSV());
@@ -39,8 +53,15 @@ public class LectureFichier {
 			
 		}
 		
+		Collections.sort(villes,new ComparatorHabitant());
+		
 		LectureFichier.consoleOut(villes);
-		// sauvegarde du fichier
+		
+		Collections.sort(villes,new ComparatorNom());
+		
+		LectureFichier.consoleOut(villes);
+		
+		//sauvegarde du fichier
 		CreerFichier.Sauvegarder(newLignes, "Les plus de 25 000 habitants.csv", dataFile);
 		
 		
