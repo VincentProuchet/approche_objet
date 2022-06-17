@@ -10,6 +10,11 @@ import java.util.List;
 
 public class CreerFichier {
 
+	/**TP 15
+	 * Ecrire les 100 premiers dans un autre fichier
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
 		String dataFile = "F:\\dev\\approche_objet\\data";
 		String fileName = "recensement.csv";

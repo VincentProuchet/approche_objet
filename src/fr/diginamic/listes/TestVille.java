@@ -3,6 +3,8 @@ package fr.diginamic.listes;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.diginamic.entities.Ville;
+
 public class TestVille {
 
 	public static void main(String[] args) {

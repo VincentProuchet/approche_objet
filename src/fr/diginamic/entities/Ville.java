@@ -1,4 +1,4 @@
-package fr.diginamic.fichier;
+package fr.diginamic.entities;
 
 import java.util.List;
 
@@ -66,17 +66,21 @@ public class Ville implements Comparable<Ville>{
 
 	@Override
 	public int compareTo(Ville o) {
-		if(this.populationTotale> o.populationTotale()) {
-			return -1;
-		}
-		else if(this.populationTotale< o.populationTotale()) {
-			return 1;
-		}
-		
-		
-		
-		return 0;
+		return this.nom.compareTo(o.nom());
 	}
+//	@Override
+//	public int compareTo(Ville o) {
+//		if(this.populationTotale> o.populationTotale()) {
+//			return -1;
+//		}
+//		else if(this.populationTotale< o.populationTotale()) {
+//			return 1;
+//		}
+//		
+//		
+//		
+//		return 0;
+//	}
 	
 	
 }
