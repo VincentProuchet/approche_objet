@@ -14,7 +14,7 @@ public class CreerFichier {
 		String dataFile = "F:\\dev\\approche_objet\\data";
 		String fileName = "recensement.csv";
 		String newFileName = "Les 100 premier.csv";
-		List<String> lignes = LectureFichier.getFile(fileName);
+		List<String> lignes = LectureFichier.getFile(fileName,dataFile);
 		List<String> nouvellesLignes = new ArrayList<>();
 		
 		if(lignes!=null) {
