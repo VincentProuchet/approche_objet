@@ -1,7 +1,5 @@
 package fr.diginamic.entities;
 
-import entities.Personnes;
-
 public class TestPersonnes {
 
 	public static void main(String[] args) {

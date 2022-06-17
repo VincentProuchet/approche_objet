@@ -1,6 +1,4 @@
-package entities;
-
-import fr.diginamic.entities.AdressePostale;
+package fr.diginamic.entities;
 
 public class Personnes extends Object {
 	// identité

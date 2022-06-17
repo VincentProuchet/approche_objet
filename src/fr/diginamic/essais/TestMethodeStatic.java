@@ -1,4 +1,4 @@
-package utils;
+package fr.diginamic.essais;
 
 // TP 04
 public class TestMethodeStatic {
