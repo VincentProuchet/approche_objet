@@ -16,7 +16,7 @@ public class Application {
 	public static void main(String[] args) throws IOException {
 		
 		
-		 	
+		System.out.println("Bienvenu dans le service de recensement." );
 		self = new Application();
 		self.enregistrements = new Recensement(self.dataFile+"\\"+self.fileName);
 		do {
@@ -32,15 +32,21 @@ public class Application {
 				break;
 				// population d'un département donné
 			case 2:
+				PopulationDepartement departement = new PopulationDepartement();
+				departement.traiter(self.enregistrements, self.scanner);
+				System.out.println(departement.getResultat());
 				break;
 				// population d'une région données
 			case 3:
+				PopulationRegion region = new PopulationRegion();
+				region.traiter(self.enregistrements,self.scanner);
+				System.out.println(region.getResultat()+" habitants");
 				break;
 				// les 10 régions plus peuplées
 			case 4:
 				
 				break;
-				// les 10 départements plus peuplés d'un département donné
+				// les 10 départements plus peuplés d'une région donnée
 			case 5:
 				
 				break;
@@ -60,6 +66,10 @@ public class Application {
 				break;
 			
 			}
+			if(self.getChoix() != CHOIXQUITTER) {
+				
+				self.continuer();
+			}
 		
 		
 		
@@ -68,7 +78,7 @@ public class Application {
 	}
 
 	public static void afficherMenuPrincipal() {
-		System.out.println("Bienvenu dans le service de recensement." 
+		System.out.println("" 
 				+ "\n \n" + "De quoi avez-vous besoin ?" + "\n\n"
 				+ "- 1. Population d’une ville donnée\r\n" 
 				+ "- 2. Population d’un département donné\r\n"
@@ -115,5 +125,34 @@ public class Application {
 			System.out.println(" Merci de n'entrer que des chiffres ");
 		}
 	}
+	
+	/** Permet de prendre une entrée utilisateur
+	 * seulement pour les nombres
+	 * 
+	 */
+	private void continuer() {
+		this.choixMenu = 0;
+		System.out.println("continuer y/n ?"  );
+		try {
+			String input = self.scanner.nextLine().trim().toLowerCase();
+			switch(input) {
+				
+			case "n":
+			case "no":
+			case "nope":
+				this.choixMenu = 9; 
+				break;
+				default:
+					break;
+				
+			}
+		}
+		
+		
+		catch (Exception e) {
+			System.out.println(" Merci de n'entrer que des chiffres ");
+		}
+	}
+	
 	
 }

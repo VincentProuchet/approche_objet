@@ -1,6 +1,9 @@
 package fr.diginamic.recensement;
 
 import java.io.IOException;
+import java.text.NumberFormat;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class TestPouplationDepartement {
 
@@ -13,22 +16,16 @@ public class TestPouplationDepartement {
 //			Scanner scanner = new Scanner(System.in);
 			enregistrements = new Recensement(dataFile+"\\"+fileName);
 			PopulationDepartement ville = new PopulationDepartement();
-			// à garder pour TestRegion
-//			ville.traiter(enregistrements, "La Réunion");
-//			System.out.println(ville.getResultat());
-//			ville.traiter(enregistrements, "Nouvelle-Aquitaine");
-//			System.out.println(ville.getResultat());
-//			ville.traiter(enregistrements, "Occitanie");
-//			System.out.println(ville.getResultat());
-//			ville.traiter(enregistrements, "Auvergne-Rhône-Alpes");
-//			System.out.println(ville.getResultat());
-			ville.traiter(enregistrements, "01");
-			System.out.println(ville.getResultat());
-			ville.traiter(enregistrements, "34");
-			System.out.println(ville.getResultat());
-			ville.traiter(enregistrements, "71");
-			System.out.println(ville.getResultat());
 			
+			
+			ville.traiter(enregistrements,new Scanner("01"));
+			System.out.println(NumberFormat.getInstance(Locale.FRANCE).format(ville.getResultat())+ " habitants" );
+			ville.traiter(enregistrements,new Scanner( "34"));
+			System.out.println(NumberFormat.getInstance(Locale.FRANCE).format(ville.getResultat())+ " habitants");
+			ville.traiter(enregistrements,new Scanner( "71"));
+			System.out.println(NumberFormat.getInstance(Locale.FRANCE).format(ville.getResultat())+ " habitants");
+			ville.traiter(enregistrements,new Scanner( "158"));
+			System.out.println(NumberFormat.getInstance(Locale.FRANCE).format(ville.getResultat())+ " habitants");
 		}
 
 }

@@ -1,43 +1,43 @@
 package fr.diginamic.recensement;
 
-import java.text.NumberFormat;
-import java.util.Locale;
 import java.util.Scanner;
 
 import fr.diginamic.entities.Ville;
 
-public class PopulationDepartement extends MenuService {
+public class PopulationRegion extends MenuService {
 	private int population;
-	private String departementRecherchee;
-	
+	private String regionRecherchee;
 
 	@Override
 	public void traiter(Recensement recensement, Scanner scanner) {
 		this.population = 0;
-		this.departementRecherchee = this.getUserInput(scanner);
+		this.regionRecherchee = this.getUserInput(scanner);
 		// si la recherche ressemble à un code
 		switch (this.inputType) {
 
 		case Code:
 			for (Ville v : recensement.getVilles()) {
-				if (v.codeDeDepartement().strip().toLowerCase().equals(this.departementRecherchee)) {
+				if (v.codeDeRegion().strip().toLowerCase().equals(this.regionRecherchee)) {
 					this.population += v.getPopulation();
 				}
 			}
 			break;
 		case Nom:
-			System.out.println("Le système ne peux faire de recherche que sur les codes des départements");
+			for (Ville v : recensement.getVilles()) {
+				if (v.nomRegion().strip().toLowerCase().equals(this.regionRecherchee)) {
+					this.population += v.getPopulation();
+				}
+			}
+			break;
 		default:
-			System.out.println("Entrée non valide");
+			
 			break;
 
 		}
-
+		
 	}
-
 	public int getResultat() {
 		return this.population ;
 	}
-	
 
 }

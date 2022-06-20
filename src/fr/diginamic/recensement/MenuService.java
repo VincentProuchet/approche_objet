@@ -3,6 +3,31 @@ package fr.diginamic.recensement;
 import java.util.Scanner;
 
 public abstract class MenuService {
+	protected InputType inputType;
 
-	public abstract void traiter(Recensement recensement,Scanner scanner);
+	public abstract void traiter(Recensement recensement, Scanner scanner);
+
+	 
+	/*chargé de qualifier l'entrée utilisateur
+	 * serviras à traiter des commandes spécifiques
+	 * @param scanner
+	 * @return
+	 */
+	protected String getUserInput(Scanner scanner) {
+		//Scanner scanner1 =new Scanner(System.in);
+		scanner.nextLine();
+		String departementRecherchee = scanner.nextLine().trim().toLowerCase();
+		//scanner1.close();
+		System.out.println("terme recherché : " + departementRecherchee);
+		if (departementRecherchee.length() > 2) {
+			this.inputType = InputType.Nom;
+		} else if (!departementRecherchee.equals("0")) {
+			this.inputType = InputType.Code;
+		} else {
+			System.out.println("Entrée non valide");
+		}
+		
+		return departementRecherchee;
+
+	}
 }

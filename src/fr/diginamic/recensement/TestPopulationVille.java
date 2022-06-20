@@ -13,15 +13,20 @@ public class TestPopulationVille {
 	private static Recensement enregistrements;
 
 	public static void main(String[] args) throws IOException {
-//		Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		enregistrements = new Recensement(dataFile+"\\"+fileName);
 		PopulationVille ville = new PopulationVille();
-		ville.traiter(enregistrements, "Montpellier");
-		
+		ville.traiter(enregistrements, new Scanner("MontPELlier"));
 		System.out.println(ville.getVille());
-		ville.traiter(enregistrements, "Olargues");
+		ville.traiter(enregistrements, new Scanner("olargUes   "));
 		System.out.println(ville.getVille());
-		ville.traiter(enregistrements, "Grenoble");
+		ville.traiter(enregistrements,new Scanner( "  grenoble"));
+		System.out.println(ville.getVille());
+		ville.traiter(enregistrements, new Scanner("	béziers   "));
+		System.out.println(ville.getVille());
+		ville.traiter(enregistrements, new Scanner("	pia   "));
+		System.out.println(ville.getVille());
+		ville.traiter(enregistrements, scanner);
 		System.out.println(ville.getVille());
 	}
 }
