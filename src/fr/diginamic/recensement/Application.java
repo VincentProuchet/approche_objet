@@ -61,10 +61,14 @@ public class Application {
 				break;
 			// les 10 départements plus peuplés d'une région donnée
 			case 5:
+<<<<<<< Upstream, based on 505aeee201c44823aeabc80c485db1e1d3ecba91
 				DepartementPlusPeupleDeRegion depPPR = new DepartementPlusPeupleDeRegion();
 				depPPR.traiter(self.enregistrements, self.scanner);
 				depPPR.afficher();
 				self.etat= ApplicationState.Continuer;
+=======
+
+>>>>>>> 91747a1 TP Recensement Fonctionnalité Regions les plus peuplées terminée
 				break;
 			// les 10 villes plus peuplés d'un département donné
 			case 6:
@@ -75,18 +79,31 @@ public class Application {
 				break;
 			// les 10 villes plus peuplées d'une région donné
 			case 7:
-				
+
 				break;
+<<<<<<< Upstream, based on 505aeee201c44823aeabc80c485db1e1d3ecba91
 			// les 10 ville les plus peuplées du pays
+=======
+			// les 10 plus peuplées
+>>>>>>> 91747a1 TP Recensement Fonctionnalité Regions les plus peuplées terminée
 			case 8:
 				break;
 			case 9:
 				self.etat = ApplicationState.Fermeture;
+<<<<<<< Upstream, based on 505aeee201c44823aeabc80c485db1e1d3ecba91
 				self.scanner.close();
+=======
+
+			default:
+				self.etat = ApplicationState.Continuer;
+>>>>>>> 91747a1 TP Recensement Fonctionnalité Regions les plus peuplées terminée
 				break;
+<<<<<<< Upstream, based on 505aeee201c44823aeabc80c485db1e1d3ecba91
 			default:
 				self.etat = ApplicationState.PrendreSaisieUtilisateur;
 				break;
+=======
+>>>>>>> 91747a1 TP Recensement Fonctionnalité Regions les plus peuplées terminée
 
 			}
 			if (self.etat == ApplicationState.Continuer) {
@@ -99,7 +116,11 @@ public class Application {
 	}
 
 	public static void afficherMenuPrincipal() {
+<<<<<<< Upstream, based on 505aeee201c44823aeabc80c485db1e1d3ecba91
 		System.out.println("" + "\n \n"
+=======
+		System.out.println("" + "\n \n" + "De quoi avez-vous besoin ?" + "\n\n"
+>>>>>>> 91747a1 TP Recensement Fonctionnalité Regions les plus peuplées terminée
 				+ "- 1. Population d’une ville donnée\r\n" + "- 2. Population d’un département donné\r\n"
 				+ "- 3. Population d’une région donnée\r\n" + "- 4. Afficher les 10 régions les plus peuplées\r\n"
 				+ "- 5. Afficher les 10 départements les plus peuplés\r\n"
@@ -131,15 +152,21 @@ public class Application {
 	 * 
 	 */
 	private void getMenuImput() {
+<<<<<<< Upstream, based on 505aeee201c44823aeabc80c485db1e1d3ecba91
 		this.choixMenu = 0;
 		do {
 			System.out.println(" Entrez le numéro de votre action :");
 		String input = self.scanner.nextLine().trim().toLowerCase();
+=======
+		self.choixMenu = 0;
+		String input = self.scanner.next().trim().toLowerCase();
+>>>>>>> 91747a1 TP Recensement Fonctionnalité Regions les plus peuplées terminée
 		
 		switch(input){
 			case "choix":
 			case "list":
 				this.etat = ApplicationState.AfficherMenuPrincipal;
+<<<<<<< Upstream, based on 505aeee201c44823aeabc80c485db1e1d3ecba91
 				this.choixMenu = 10;
 				break;
 			case "exit":
@@ -156,6 +183,22 @@ public class Application {
 					System.out.println(" Merci de n'entrer que des chiffres ");
 				}
 		}	}while(this.etat != ApplicationState.PrendreSaisieUtilisateur);	
+=======
+				break;
+			case "exit":
+				this.etat = ApplicationState.Fermeture;
+				break;				
+			default:
+				try {
+					
+					self.choixMenu = Integer.parseInt(input);
+				}
+
+				catch (Exception e) {
+					System.out.println(" Merci de n'entrer que des chiffres ");
+				}
+		}		
+>>>>>>> 91747a1 TP Recensement Fonctionnalité Regions les plus peuplées terminée
 	}
 
 	/**
