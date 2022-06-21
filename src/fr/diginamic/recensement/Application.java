@@ -61,23 +61,31 @@ public class Application {
 				break;
 			// les 10 départements plus peuplés d'une région donnée
 			case 5:
-
+				DepartementPlusPeupleDeRegion depPPR = new DepartementPlusPeupleDeRegion();
+				depPPR.traiter(self.enregistrements, self.scanner);
+				depPPR.afficher();
+				self.etat= ApplicationState.Continuer;
 				break;
 			// les 10 villes plus peuplés d'un département donné
 			case 6:
+				VillePlusPleupleDeDepartement villesPPD = new VillePlusPleupleDeDepartement();
+				villesPPD.traiter(self.enregistrements, self.scanner);
+				villesPPD.afficher();
+				self.etat= ApplicationState.Continuer;
 				break;
 			// les 10 villes plus peuplées d'une région donné
 			case 7:
-
+				
 				break;
-			// les 10 plus peuplées
+			// les 10 ville les plus peuplées du pays
 			case 8:
 				break;
 			case 9:
 				self.etat = ApplicationState.Fermeture;
-
+				self.scanner.close();
+				break;
 			default:
-				self.etat = ApplicationState.Continuer;
+				self.etat = ApplicationState.PrendreSaisieUtilisateur;
 				break;
 
 			}
@@ -91,7 +99,7 @@ public class Application {
 	}
 
 	public static void afficherMenuPrincipal() {
-		System.out.println("" + "\n \n" + "De quoi avez-vous besoin ?" + "\n\n"
+		System.out.println("" + "\n \n"
 				+ "- 1. Population d’une ville donnée\r\n" + "- 2. Population d’un département donné\r\n"
 				+ "- 3. Population d’une région donnée\r\n" + "- 4. Afficher les 10 régions les plus peuplées\r\n"
 				+ "- 5. Afficher les 10 départements les plus peuplés\r\n"
@@ -123,16 +131,20 @@ public class Application {
 	 * 
 	 */
 	private void getMenuImput() {
-		self.choixMenu = 0;
-		String input = self.scanner.next().trim().toLowerCase();
+		this.choixMenu = 0;
+		do {
+			System.out.println(" Entrez le numéro de votre action :");
+		String input = self.scanner.nextLine().trim().toLowerCase();
 		
 		switch(input){
 			case "choix":
 			case "list":
 				this.etat = ApplicationState.AfficherMenuPrincipal;
+				this.choixMenu = 10;
 				break;
 			case "exit":
 				this.etat = ApplicationState.Fermeture;
+				this.choixMenu = 9;
 				break;				
 			default:
 				try {
@@ -143,7 +155,7 @@ public class Application {
 				catch (Exception e) {
 					System.out.println(" Merci de n'entrer que des chiffres ");
 				}
-		}		
+		}	}while(this.etat != ApplicationState.PrendreSaisieUtilisateur);	
 	}
 
 	/**

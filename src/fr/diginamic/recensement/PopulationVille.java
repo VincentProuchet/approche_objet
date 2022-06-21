@@ -19,8 +19,7 @@ public class PopulationVille extends MenuService {
 			}
 		}
 
-	}	
-
+	}
 	public Ville getVille() {
 		return this.resultat;
 	}

@@ -13,7 +13,7 @@ public class TestPopulationVille {
 	private static Recensement enregistrements;
 
 	public static void main(String[] args) throws IOException {
-		Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);	
 		enregistrements = new Recensement(dataFile+"\\"+fileName);
 		PopulationVille ville = new PopulationVille();
 		ville.traiter(enregistrements, new Scanner("MontPELlier"));

@@ -20,6 +20,10 @@ public class TestRecensement {
 		String fileName = "recensement.csv";
 		
 		Recensement records = new Recensement(dataFile+"\\"+fileName);		
+		TestRecensement rec = new TestRecensement(records);
+		
+	}
+	public TestRecensement(Recensement records) {
 		// un jolie ligne d'entête pour mon tableau excel
 		//newLignes.add(" nom de la commune ; code département; Région; population totale;");		
 		System.out.println("villes");
@@ -41,6 +45,8 @@ public class TestRecensement {
 		regions.sort(new RegionComparator(TriType.ParNom));
 		consoleOut(regions);
 	}
+	
+	
 	/**
 	 * Affiche le contenu de villes dans la console
 	 * sers au test

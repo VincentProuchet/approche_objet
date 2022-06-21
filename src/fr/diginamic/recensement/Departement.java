@@ -7,11 +7,12 @@ import fr.diginamic.entities.Ville;
 
 public class Departement {
 	private List<Ville> villes;
-	private String codeDepartement, codeRegion, nomRegion;
+	private String codeDepartement,nom, codeRegion, nomRegion;
 
 	public Departement(String id) {
 		this.villes = new ArrayList<>();
 		this.codeDepartement = id;
+		this.nom = "";
 	}
 
 	/**
@@ -69,6 +70,9 @@ public class Departement {
 
 	public String codeDepartement() {
 		return this.codeDepartement;
+	}
+	public String nom() {
+		return this.nom;
 	}
 
 	public String toString() {
