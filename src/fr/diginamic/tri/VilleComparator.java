@@ -5,9 +5,6 @@ import java.util.Comparator;
 import fr.diginamic.entities.Ville;
 
 public class VilleComparator implements Comparator<Ville> {
-	public enum TriType {
-		ParNom,ParNomInverse, ParPopulation,ParPopulationInverse
-	}
 
 	private TriType trierPar;
 	private Ville v1;
@@ -23,12 +20,17 @@ public class VilleComparator implements Comparator<Ville> {
 
 	@Override
 	public int compare(Ville o1, Ville o2) {
-
+		this.v1 = o1;
+		this.v2 = o2;
 		switch (this.trierPar) {
 		case ParPopulation:
 			return this.parPopulation();
 		case ParNom:
 			return this.parOrdreAlphabetique();
+		case ParRegion:
+			return this.parRegion();
+		case ParDepartement:
+			return this.parDepartement();
 		default:
 			return 0;
 
@@ -46,6 +48,12 @@ public class VilleComparator implements Comparator<Ville> {
 		return 0;
 	}
 	private int parOrdreAlphabetique() {
-		return v1.nom().compareTo(v2.nom());
+		return this.v1.nom().compareTo(this.v2.nom());
+	}
+	private int parDepartement() {
+		return this.v1.codeDeDepartement().compareTo(this.v2.codeDeDepartement());
+	}
+	private int parRegion() {
+		return this.v1.codeDeRegion().compareTo(this.v2.codeDeRegion());
 	}
 }

@@ -10,6 +10,7 @@ public class PopulationVille extends MenuService {
 
 	public void traiter(Recensement donnees, Scanner scanner) {
 		this.resultat = null;
+		System.out.print("Quelle ville voulez-vous ? ");
 		this.villeRecherchee = this.getUserInput(scanner);
 		
 		for (Ville v : donnees.getVilles()) {
