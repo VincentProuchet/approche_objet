@@ -7,11 +7,7 @@ import fr.diginamic.entities.Ville;
 
 public class Departement {
 	private List<Ville> villes;
-<<<<<<< Upstream, based on 505aeee201c44823aeabc80c485db1e1d3ecba91
 	private String codeDepartement,nom, codeRegion, nomRegion;
-=======
-	private String codeDepartement, codeRegion, nomRegion;
->>>>>>> 91747a1 TP Recensement Fonctionnalité Regions les plus peuplées terminée
 
 	public Departement(String id) {
 		this.villes = new ArrayList<>();
@@ -75,7 +71,6 @@ public class Departement {
 	public String codeDepartement() {
 		return this.codeDepartement;
 	}
-<<<<<<< Upstream, based on 505aeee201c44823aeabc80c485db1e1d3ecba91
 	public String nom() {
 		return this.nom;
 	}
@@ -84,10 +79,3 @@ public class Departement {
 		return this.codeDepartement +" dans " + this.nomRegion;
 	}
 }
-=======
-
-	public String toString() {
-		return this.codeDepartement +" dans " + this.nomRegion;
-	}
-}
->>>>>>> 91747a1 TP Recensement Fonctionnalité Regions les plus peuplées terminée
