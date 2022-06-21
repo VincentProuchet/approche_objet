@@ -8,13 +8,12 @@ import java.util.List;
  */
 public class Ville implements Comparable<Ville>{
 	
-	private String codeDeRegion;
-	private String nomRegion;
-	
-	private String codeDepartement;
-	
-	private String codeDeCommune;
-	private String nom;
+	private String codeDeRegion
+					,nomRegion
+					,codeDepartement
+					,codeDeCommune
+					,nom
+					;
 
 	private int populationTotale;
 	/**
@@ -31,6 +30,8 @@ public class Ville implements Comparable<Ville>{
 		this.codeDepartement = codeDepartement;
 		this.nomRegion = region;
 		this.populationTotale = Integer.parseInt(population);
+		
+		
 		}
 	
 	public Ville(String ligne) {

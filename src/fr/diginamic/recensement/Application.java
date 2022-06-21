@@ -6,89 +6,98 @@ import java.util.Scanner;
 public class Application {
 
 	static Application self;
+	private ApplicationState etat = ApplicationState.Demarrage;
 	private int choixMenu;
 	private Scanner scanner;
-	public static final int CHOIXQUITTER = 9;
-	public  String dataFile = "F:\\dev\\approche_objet\\data";
-	public  String fileName = "recensement.csv";
-	private  Recensement enregistrements;
+	public String dataFile = "F:\\dev\\approche_objet\\data";
+	public String fileName = "recensement.csv";
+	private Recensement enregistrements;
 
 	public static void main(String[] args) throws IOException {
-		
-		
-		System.out.println("Bienvenu dans le service de recensement." );
+
+		System.out.println("Bienvenu dans le service de recensement.");
 		self = new Application();
-		self.enregistrements = new Recensement(self.dataFile+"\\"+self.fileName);
+		self.enregistrements = new Recensement(self.dataFile + "\\" + self.fileName);
+		self.etat = ApplicationState.AfficherMenuPrincipal;
 		do {
-			
-			afficherMenuPrincipal();
-			self.getMenuImput();
-			switch(self.getChoix()) {
-			// population d'une ville donnée 
+			// permet de ne pas ré-afficher systématiquement le menu principal
+			if (self.etat == ApplicationState.AfficherMenuPrincipal) {
+				afficherMenuPrincipal();
+				self.etat = ApplicationState.PrendreSaisieUtilisateur;
+			}
+			// permet de ne pas redemander une saisie dans le cas ou l'utilisateur souhaiterais 
+			// faire le même type d'opération
+			if (self.etat == ApplicationState.PrendreSaisieUtilisateur) {			
+				self.getMenuImput();
+			}
+			switch (self.getChoix()) {
+			// population d'une ville donnée
 			case 1:
 				PopulationVille ville = new PopulationVille();
-				ville.traiter(self.enregistrements,self.scanner);				
+				ville.traiter(self.enregistrements, self.scanner);
 				System.out.println(ville.getVille());
+				self.etat= ApplicationState.Continuer;
 				break;
-				// population d'un département donné
+			// population d'un département donné
 			case 2:
 				PopulationDepartement departement = new PopulationDepartement();
 				departement.traiter(self.enregistrements, self.scanner);
 				System.out.println(departement.getResultat());
+				self.etat= ApplicationState.Continuer;
 				break;
-				// population d'une région données
+			// population d'une région données
 			case 3:
 				PopulationRegion region = new PopulationRegion();
-				region.traiter(self.enregistrements,self.scanner);
-				System.out.println(region.getResultat()+" habitants");
+				region.traiter(self.enregistrements, self.scanner);
+				System.out.println(region.getResultat() + " habitants");
+				self.etat= ApplicationState.Continuer;
 				break;
-				// les 10 régions plus peuplées
+			// les 10 régions plus peuplées
 			case 4:
-				
+				RegionsPlusPeuplee regionPP = new RegionsPlusPeuplee();
+				regionPP.traiter(self.enregistrements,self.scanner);
+				regionPP.afficher();
+				self.etat= ApplicationState.PrendreSaisieUtilisateur;
 				break;
-				// les 10 départements plus peuplés d'une région donnée
+			// les 10 départements plus peuplés d'une région donnée
 			case 5:
-				
+
 				break;
-				// les 10 villes plus peuplés d'un département donné
+			// les 10 villes plus peuplés d'un département donné
 			case 6:
 				break;
-				// les 10 villes plus peuplées d'une région donné 
+			// les 10 villes plus peuplées d'une région donné
 			case 7:
-				
+
 				break;
-				// les 10 plus peuplées
+			// les 10 plus peuplées
 			case 8:
 				break;
-				
+			case 9:
+				self.etat = ApplicationState.Fermeture;
+
 			default:
-				// rien
+				self.etat = ApplicationState.Continuer;
 				break;
-			
+
 			}
-			if(self.getChoix() != CHOIXQUITTER) {
-				
+			if (self.etat == ApplicationState.Continuer) {
+
 				self.continuer();
 			}
-		
-		
-		
-		}while(self.getChoix() != CHOIXQUITTER);
+
+		} while (self.etat != ApplicationState.Fermeture);
 
 	}
 
 	public static void afficherMenuPrincipal() {
-		System.out.println("" 
-				+ "\n \n" + "De quoi avez-vous besoin ?" + "\n\n"
-				+ "- 1. Population d’une ville donnée\r\n" 
-				+ "- 2. Population d’un département donné\r\n"
-				+ "- 3. Population d’une région donnée\r\n" 
-				+ "- 4. Afficher les 10 régions les plus peuplées\r\n"
+		System.out.println("" + "\n \n" + "De quoi avez-vous besoin ?" + "\n\n"
+				+ "- 1. Population d’une ville donnée\r\n" + "- 2. Population d’un département donné\r\n"
+				+ "- 3. Population d’une région donnée\r\n" + "- 4. Afficher les 10 régions les plus peuplées\r\n"
 				+ "- 5. Afficher les 10 départements les plus peuplés\r\n"
 				+ "- 6. Afficher les 10 villes les plus peuplées d’un département\r\n"
 				+ "- 7. Afficher les 10 villes les plus peuplées d’une région\r\n"
-				+ "- 8. Afficher les 10 villes les plus peuplées de France\r\n" 
-				+ "- 9. Sortir");
+				+ "- 8. Afficher les 10 villes les plus peuplées de France\r\n" + "- 9. Sortir");
 
 	}
 
@@ -108,51 +117,62 @@ public class Application {
 		this.choixMenu = 0;
 		this.scanner = new Scanner(System.in);
 	}
-	
-	/** Permet de prendre une entrée utilisateur
-	 * seulement pour les nombres
+
+	/**
+	 * Permet de prendre une entrée utilisateur seulement pour les nombres
 	 * 
 	 */
 	private void getMenuImput() {
 		self.choixMenu = 0;
-		try {
-			String input = self.scanner.next();
-			self.choixMenu = Integer.parseInt(input);
-		}
+		String input = self.scanner.next().trim().toLowerCase();
 		
-		
-		catch (Exception e) {
-			System.out.println(" Merci de n'entrer que des chiffres ");
-		}
+		switch(input){
+			case "choix":
+			case "list":
+				this.etat = ApplicationState.AfficherMenuPrincipal;
+				break;
+			case "exit":
+				this.etat = ApplicationState.Fermeture;
+				break;				
+			default:
+				try {
+					
+					self.choixMenu = Integer.parseInt(input);
+				}
+
+				catch (Exception e) {
+					System.out.println(" Merci de n'entrer que des chiffres ");
+				}
+		}		
 	}
-	
-	/** Permet de prendre une entrée utilisateur
-	 * seulement pour les nombres
-	 * 
+
+	/**
+	 * demande et attend une saisie utilisateur pour savoir si il souhaite continuer
+	 * un refus entraineras l'arrêt du programme.
 	 */
 	private void continuer() {
 		this.choixMenu = 0;
-		System.out.println("continuer y/n ?"  );
+		System.out.println("continuer y/n ?");
 		try {
 			String input = self.scanner.nextLine().trim().toLowerCase();
-			switch(input) {
-				
+
+			switch (input) {
+
 			case "n":
 			case "no":
 			case "nope":
-				this.choixMenu = 9; 
+				this.etat = ApplicationState.Fermeture;
 				break;
-				default:
-					break;
-				
+			default:
+				this.etat = ApplicationState.PrendreSaisieUtilisateur;
+				break;
+
 			}
 		}
-		
-		
+
 		catch (Exception e) {
 			System.out.println(" Merci de n'entrer que des chiffres ");
 		}
 	}
-	
-	
+
 }

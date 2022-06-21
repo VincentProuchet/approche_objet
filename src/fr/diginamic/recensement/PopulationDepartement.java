@@ -14,6 +14,7 @@ public class PopulationDepartement extends MenuService {
 	@Override
 	public void traiter(Recensement recensement, Scanner scanner) {
 		this.population = 0;
+		System.out.print("Quelle Département voulez-vous ? ");
 		this.departementRecherchee = this.getUserInput(scanner);
 		// si la recherche ressemble à un code
 		switch (this.inputType) {

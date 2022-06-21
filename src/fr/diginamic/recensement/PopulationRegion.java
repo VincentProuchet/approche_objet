@@ -11,6 +11,8 @@ public class PopulationRegion extends MenuService {
 	@Override
 	public void traiter(Recensement recensement, Scanner scanner) {
 		this.population = 0;
+		System.out.print("Quelle région voulez-vous ? ");
+		
 		this.regionRecherchee = this.getUserInput(scanner);
 		// si la recherche ressemble à un code
 		switch (this.inputType) {
