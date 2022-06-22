@@ -73,9 +73,13 @@ public class Application {
 				villesPPD.afficher();
 				self.etat= ApplicationState.Continuer;
 				break;
-			// les 10 villes plus peuplées d'une région donné
-			case 7:
 				
+				
+			case 7:
+				VillesPlusPeupleRegion villesPPR = new VillesPlusPeupleRegion();
+				villesPPR.traiter(self.enregistrements, self.scanner);
+				villesPPR.afficher();
+				self.etat= ApplicationState.Continuer;
 				break;
 			// les 10 ville les plus peuplées du pays
 			case 8:

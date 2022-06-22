@@ -68,4 +68,22 @@ public class Region {
 
 		return this.code+" ---- "  + this.nom;
 	}
+	/**
+	 * 
+	 * @return un set des villes présentent dans les département 
+	 */
+	public HashSet<Ville> villes(){
+		HashSet<Ville> villes = new HashSet<Ville>();
+		// on parcours les département
+		for(Departement d : this.departements) {
+			//puis on parcourt la liste de villes de chacun  
+			for ( Ville v : d.villes()) {
+				// que l'on ajoute à la liste temporaire
+				villes.add(v);
+			}
+		}
+		
+		// que l'on renvoi
+		 return villes;
+	}
 }

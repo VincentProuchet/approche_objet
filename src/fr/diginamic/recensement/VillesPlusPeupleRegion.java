@@ -8,14 +8,13 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import fr.diginamic.entities.Ville;
-import fr.diginamic.tri.DepartmentComparator;
 import fr.diginamic.tri.TriType;
 import fr.diginamic.tri.VilleComparator;
 
-public class VillePlusPleupleDeDepartement extends MenuService{
+public class VillesPlusPeupleRegion extends MenuService{
 
 	public List<Ville> villes;
-	public Departement departement;
+	public Region region;
 	public int listeSize = 10;
 	public String dapartementRecherchee;
 
@@ -23,17 +22,21 @@ public class VillePlusPleupleDeDepartement extends MenuService{
 
 	@Override
 	public void traiter(Recensement recensement, Scanner scanner) {
-		this.departement = null;
-		System.out.println("Quelle Département voulez-vous ? \n");
+		this.region = null;
+		System.out.println("Quelle Région voulez-vous ? \n");
 		this.dapartementRecherchee = this.getUserInput(scanner);
-		for (Departement d : recensement.getDepartement()) {
-			if (d.nom().equalsIgnoreCase(dapartementRecherchee) || d.codeDepartement().equals(dapartementRecherchee)) {
-				this.departement = d;
+		// on parcours les régions
+		for (Region d : recensement.getRegions()) {
+			if (d.nom().equalsIgnoreCase(dapartementRecherchee) || d.code().equals(dapartementRecherchee)) {
+				this.region = d;
 				break;
 			}
 		}
-		if (this.departement != null) {
-			this.villes = new ArrayList<Ville>(this.departement.villes());
+		// si une région est trouvée
+		if (this.region != null) {
+			// on y récupère la liste à trier
+			this.villes = new ArrayList<Ville>(this.region.villes());
+			// puis on la trie
 			this.villes.sort(new VilleComparator(TriType.ParPopulation));
 		}
 
@@ -41,7 +44,10 @@ public class VillePlusPleupleDeDepartement extends MenuService{
 
 	public void afficher() {
 
-		if (this.departement != null) {
+		if (this.region != null) {
+			
+			System.out.println(" Région trouvée : " + this.region.nom()+"\n"
+					+ "___________________________________________________");
 			Iterator<Ville> iterVille = this.villes.iterator();
 
 			int i = 0;
@@ -53,7 +59,7 @@ public class VillePlusPleupleDeDepartement extends MenuService{
 				i++;
 			}
 		} else {
-			System.out.println("\n Aucuns Départements ne correspond à la recherche ");
+			System.out.println("\n Aucune Région ne correspond à la recherche ");
 		}
 	}
 
