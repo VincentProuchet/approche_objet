@@ -1,6 +1,5 @@
 package fr.diginamic.entities;
 
-import java.util.List;
 /**
  *  
  * @author Vincent
