@@ -26,9 +26,8 @@ public class mapVilles {
 		
 		/// on cherche la moins peuplé
 		Ville lemoinspeuple = null;
-		Iterator<Ville> iterVille = data.values().iterator();
-		while(iterVille.hasNext()) {
-			Ville v = iterVille.next();
+		
+		for(Ville v : data.values()) {
 			if(lemoinspeuple == null) {
 				lemoinspeuple = v;
 			}
@@ -41,23 +40,19 @@ public class mapVilles {
 		System.out.println("la moins peuplé :" +lemoinspeuple );
 		data.remove(lemoinspeuple.getNom());
 		System.out.println("retiré :" +lemoinspeuple );
-		System.out.println("il y reste :"+data.size()+ " villes dans la table");
+		System.out.println("il reste :"+data.size()+ " villes dans la table");
 		System.out.println("_________________________________________________________________");
 		afficherMap(data);
 		
 	}
 	
-	public static <K, V> void afficherMap(HashMap<K, V>map1) {
-		Iterator<K> iterKey = map1.keySet().iterator();
-		Iterator<V> iterValue = map1.values().iterator();
+public static <K, V> void afficherMap(HashMap<K, V>map1) {
 		
-		
-		while(iterValue.hasNext()&&iterKey.hasNext()) {
-			
-			System.out.println(iterKey.next() +"  " + iterValue.next() );
+		for(K key:map1.keySet()) {	
+			System.out.println(key +"  " + map1.get(key) );
 		}
 		
-		//System.out.println("il y a :"+map1.size()+ " élements dans la table");
+
 
 	}
 

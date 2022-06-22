@@ -16,7 +16,11 @@ public class FusionMap {
 		map2.put(4, "Blanc");
 		map2.put(5, "Bleu");
 		map2.put(6, "Orange");
-		HashMap<Integer, String> map = fusionMap(map1, map2);
+		//HashMap<Integer, String> map = fusionMap(map1, map2);
+		HashMap<Integer, String> map  =new HashMap<>();
+		map.putAll(map1);
+		map.putAll(map2);
+		
 		afficherMap(map);
 		
 	}
@@ -42,17 +46,13 @@ public class FusionMap {
 		
 	}
 	
-	public static <K, V> void afficherMap(HashMap<K, V>map1) {
-		Iterator<K> iterKey = map1.keySet().iterator();
-		Iterator<V> iterValue = map1.values().iterator();
+public static <K, V> void afficherMap(HashMap<K, V>map1) {
 		
-		
-		while(iterValue.hasNext()&&iterKey.hasNext()) {
-			
-			System.out.println(iterKey.next() +"  " + iterValue.next() );
+		for(K key:map1.keySet()) {	
+			System.out.println(key +"  " + map1.get(key) );
 		}
 		
-		System.out.println("il y a :"+map1.size()+ " élements dans la table");
+
 
 	}
 
