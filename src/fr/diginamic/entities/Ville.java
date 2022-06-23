@@ -1,5 +1,9 @@
 package fr.diginamic.entities;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+
+import fr.diginamic.testenumeration.Continent;
+
 /**
  * 
  * @author Vincent
@@ -7,7 +11,13 @@ package fr.diginamic.entities;
  */
 public class Ville implements Comparable<Ville> {
 
-	private String codeDeRegion, nomRegion, codeDepartement, codeDeCommune, nom;
+	private String codeDeRegion;
+	private String nomRegion;
+	private String codeDepartement;
+	private String codeDeCommune;
+	private String nom;
+	
+	private Continent continent = Continent.ND;
 
 	private int populationTotale;
 
@@ -26,7 +36,10 @@ public class Ville implements Comparable<Ville> {
 		this.populationTotale = Integer.parseInt(population);
 
 	}
-
+/**
+ * Constructeur
+ * @param ligne
+ */
 	public Ville(String ligne) {
 		String[] data = ligne.split(";");
 		this.codeDeRegion = data[0];
@@ -38,19 +51,31 @@ public class Ville implements Comparable<Ville> {
 		this.populationTotale = Integer.parseInt(data[data.length - 1].trim().replaceAll(" ", ""));
 
 	}
-
+/**
+ * Constructeur
+ * @param nom
+ * @param nbhabitant
+ */
 	public Ville(String nom, long nbhabitant) {
 		this.nom = nom;
 		this.populationTotale = (int) nbhabitant;
 
 	}
-
+/**
+ * Constructeur
+ * @param nom
+ * @param nbhabitant
+ */
 	public Ville(String nom, int nbhabitant) {
 		this.nom = nom;
 		this.populationTotale = nbhabitant;
 
 	}
+	public Ville(String nom, Continent continent) {
+		this.nom = nom;
+		this.continent = continent;
 
+	}
 	public int getPopulation() {
 		return this.populationTotale;
 	}
@@ -73,9 +98,27 @@ public class Ville implements Comparable<Ville> {
 
 	@Override
 	public String toString() {
-		return this.nom + "/" + this.codeDepartement + "/" + this.nomRegion + "/" + this.populationTotale + "/";
+		return this.nom 
+				+ " Dep: " + this.codeDepartement 
+				+ " Region : " + this.nomRegion
+				+ " Population : " 
+				+ this.populationTotale 
+				+ " habitants "
+				+ " continent : " + this.continent.libelle;
 	}
 
+	/** Getter
+	 * @return the continent
+	 */
+	public Continent getContinent() {
+		return continent;
+	}
+	/** Setter
+	 * @param continent the continent to set
+	 */
+	public void setContinent(Continent continent) {
+		this.continent = continent;
+	}
 	public int populationTotale() {
 		return this.populationTotale;
 	}
@@ -107,9 +150,17 @@ public class Ville implements Comparable<Ville> {
 
 	@Override
 	public boolean equals(Object object) {
+		// on teste si l'object passé est une instance de classe Ville
 		if ((object instanceof Ville)) {
+			// si c'est le cas on le transforme explicitement
+			// ce n'est pas une sécurité mais juste un confort de codage
+			// parce que ça permet l'auto-completion
 			Ville other = (Ville) object;
-			if (this.nom.equals(other.getNom()) && this.codeDeCommune.equals(other.codeDeCommune())) {
+			boolean equalityNom = new EqualsBuilder().append(this.nom, other.getNom()).isEquals();
+			boolean equalityNumCommune = new EqualsBuilder().append(this.codeDeCommune, other.codeDeCommune())
+					.isEquals();
+
+			if (equalityNom && equalityNumCommune) {
 				return true;
 			}
 		}

@@ -71,7 +71,7 @@ public class Recensement {
 		if (this.etat == EtatRecensement.PremiersEnregistrements) {
 			// create a new département
 			this.currentDepartement = new Departement(ville.codeDeDepartement());
-			this.etat = EtatRecensement.NouveauDépartement;
+			this.etat = EtatRecensement.NouveauDepartement;
 
 		}
 		// on vérifie le code demandé avec le courant
@@ -92,7 +92,7 @@ public class Recensement {
 				this.currentDepartement = new Departement(ville.codeDeDepartement());
 				// à voir si l'ont ne vas pas regrouper l'ajout des données
 				// marqué pour ajout à la liste
-				this.etat = EtatRecensement.NouveauDépartement;
+				this.etat = EtatRecensement.NouveauDepartement;
 			}
 
 		}
@@ -103,7 +103,7 @@ public class Recensement {
 		// on y ajoute la nouvelle ville
 		this.currentDepartement.ajouter(ville);
 		// et si c'est un nouveau département on l'ajoute à la liste des départements
-		if (this.etat == EtatRecensement.NouveauDépartement) {
+		if (this.etat == EtatRecensement.NouveauDepartement) {
 			this.departements.add(currentDepartement);
 		}
 	}
@@ -144,13 +144,13 @@ public class Recensement {
 				this.regions.add(currentRegion);
 				// les nouvelle région reçoivent toujours un nouveau département
 				// on écrase l'état précédent
-				etatPecedant = EtatRecensement.NouveauDépartement;
+				etatPecedant = EtatRecensement.NouveauDepartement;
 			}
 		// on rend la main à l'état précédent
 			this.etat = etatPecedant;
 			
 		// et si c'est un nouveau département on l'ajoute départements de la région
-		if (this.etat == EtatRecensement.NouveauDépartement) {
+		if (this.etat == EtatRecensement.NouveauDepartement) {
 			this.currentRegion.ajouter(currentDepartement);
 		}
 

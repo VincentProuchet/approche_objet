@@ -8,4 +8,5 @@ public enum TriType {
 	,ParIdentifiant
 	,ParRegion
 	,ParDepartement
+	;
 }
