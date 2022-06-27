@@ -25,12 +25,18 @@ public enum Saison {
 		this.nom = nom;
 		this.numero = numero;
 	}
-
-	public String nom() {
+	/**Getter
+	 * 
+	 * @return le nom
+	 */
+	public String getNom() {
 		return this.nom;
 	}
-
-	public int numero() {
+	/** Getter
+	 * 
+	 * @return le numéro
+	 */
+	public int getNumero() {
 		return this.numero;
 	}
 

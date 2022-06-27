@@ -1,7 +1,11 @@
 package fr.diginamic.chaines;
 
 import fr.diginamic.entities.Salarie;
-
+/**Classe de test de la librairie de manupulation de chaine de Java
+ * 
+ * @author Vincent
+ *
+ */
 public class ManipulationChaine {
 
 	public static void main(String[] args) {
@@ -24,8 +28,12 @@ public class ManipulationChaine {
 		
 	}
 	
-	
-	public static void  AfficheTableau(String[]tableau) {
+	/**affiche les données d'un tableau
+	 * sous la forme d'un tableau dans la console de commande 
+	 * @param <T> 
+	 * @param tableau
+	 */
+	public static <T> void  AfficheTableau(T[]tableau) {
 			System.out.println("Le tableau contient ");
 		
 		for (int i = 0; i < tableau.length; i++) {

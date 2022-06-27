@@ -2,7 +2,6 @@ package fr.diginamic.tri;
 
 import java.util.Comparator;
 
-import fr.diginamic.entities.Ville;
 import fr.diginamic.recensement.Departement;
 
 public class DepartmentComparator implements Comparator<Departement> {

@@ -7,7 +7,7 @@ public abstract class Creature {
 	private int pointsDeVie;
 	
 	private int force;
-	private int scorePoints = 0;
+	protected int scorePoints = 0;
 	
 	private Random random;
 	

@@ -1,9 +1,12 @@
-package fr.diginamic.recensement;
+package fr.diginamic.recensement.essais;
 
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
+
+import fr.diginamic.recensement.PopulationRegion;
+import fr.diginamic.recensement.Recensement;
 
 public class TestPopulationRegion {
 	public 	static  String dataFile = "F:\\dev\\approche_objet\\data";

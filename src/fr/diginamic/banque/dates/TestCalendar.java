@@ -5,7 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-
+/** Classe pour tester l'API calendar de javaS
+ * 
+ * @author Vincent
+ *
+ */
 public class TestCalendar {
 
 	public static void main(String[] args) {

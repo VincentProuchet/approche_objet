@@ -1,7 +1,10 @@
-package fr.diginamic.recensement;
+package fr.diginamic.recensement.essais;
 
 import java.io.IOException;
 import java.util.Scanner;
+
+import fr.diginamic.recensement.Recensement;
+import fr.diginamic.recensement.VillesPlusPeuple;
 
 public class TestVillePlusPeuple {
 	public static String dataFile = "F:\\dev\\approche_objet\\data";

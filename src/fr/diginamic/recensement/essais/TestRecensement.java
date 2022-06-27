@@ -1,4 +1,4 @@
-package fr.diginamic.recensement;
+package fr.diginamic.recensement.essais;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -7,6 +7,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import fr.diginamic.entities.Ville;
+import fr.diginamic.recensement.Departement;
+import fr.diginamic.recensement.Recensement;
+import fr.diginamic.recensement.Region;
 import fr.diginamic.tri.DepartmentComparator;
 import fr.diginamic.tri.RegionComparator;
 import fr.diginamic.tri.TriType;

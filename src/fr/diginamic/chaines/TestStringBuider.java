@@ -1,5 +1,12 @@
 package fr.diginamic.chaines;
-
+/**Classe de test de la librairie StringBuilder
+ * Le but ici est de montrer la différence en terme de performances entre
+ * la concaténation brute de l'opérateur +
+ * l'utilisdation de stringbuilder et sa méthode append
+ * 
+ * @author Vincent
+ *
+ */
 public class TestStringBuider {
 
 	public static void main(String[] args) {

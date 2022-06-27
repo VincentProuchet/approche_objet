@@ -8,7 +8,6 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import fr.diginamic.tri.DepartmentComparator;
-import fr.diginamic.tri.RegionComparator;
 import fr.diginamic.tri.TriType;
 
 public class DepartementPlusPeupleDeRegion extends MenuService {

@@ -68,7 +68,7 @@ public class TestJdr {
 	 * @param personnage
 	 */
 	public static void afficherScore(Personnage personnage) {
-		System.out.println("\n score : " + personnage.getScore() + "\n");
+		System.out.println("\n score : " + personnage.getPoints() + "\n");
 	}
 	/** ajoute l'objet passé en paramètre
 	 * dans le tableau passé en paramètre

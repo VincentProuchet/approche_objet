@@ -1,7 +1,5 @@
 package fr.diginamic.recensement;
 
-import java.text.NumberFormat;
-import java.util.Locale;
 import java.util.Scanner;
 
 import fr.diginamic.entities.Ville;

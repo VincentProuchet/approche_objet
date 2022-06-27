@@ -1,9 +1,11 @@
 package fr.diginamic.banque.dates;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
-
+/**Classe pour tester l'API Date de Java
+ * 
+ * @author Vincent
+ *
+ */
 public class TestDates {
 
 	public static void main(String[] args) {

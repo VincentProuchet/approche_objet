@@ -2,7 +2,6 @@ package fr.diginamic.maps;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import fr.diginamic.entities.Ville;
 import fr.diginamic.recensement.Recensement;

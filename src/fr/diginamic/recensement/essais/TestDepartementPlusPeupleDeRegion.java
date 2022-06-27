@@ -1,7 +1,10 @@
-package fr.diginamic.recensement;
+package fr.diginamic.recensement.essais;
 
 import java.io.IOException;
 import java.util.Scanner;
+
+import fr.diginamic.recensement.DepartementPlusPeupleDeRegion;
+import fr.diginamic.recensement.Recensement;
 
 public class TestDepartementPlusPeupleDeRegion {
 

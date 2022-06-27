@@ -1,8 +1,6 @@
 package fr.diginamic.essais;
 
-import geometrie.Cercle;
 import geometrie.ObjetGeometrique;
-import geometrie.Rectangle;
 
 /** TP 9 
  * interfaces faciles

@@ -83,6 +83,9 @@ public class Ville implements Comparable<Ville> {
 	public String getNom() {
 		return this.nom;
 	}
+	public String getName() {
+		return this.nom;
+	}
 
 	public void capitalizeNom() {
 		this.nom = this.nom.toUpperCase();
@@ -93,18 +96,35 @@ public class Ville implements Comparable<Ville> {
 	 *         ";" comme séparateur
 	 */
 	public String toCSV() {
-		return this.nom + ";" + this.codeDepartement + ";" + this.nomRegion + ";" + this.populationTotale + ";";
+		return new StringBuilder()
+				.append(this.nom)
+				.append(";").append(this.codeDepartement)
+				.append(";").append(this.nomRegion)
+				
+				.append(";").append(this.populationTotale)
+				.append(";")
+				.toString()
+				;
 	}
 
 	@Override
 	public String toString() {
-		return this.nom 
-				+ " Dep: " + this.codeDepartement 
-				+ " Region : " + this.nomRegion
-				+ " Population : " 
-				+ this.populationTotale 
-				+ " habitants "
-				+ " continent : " + this.continent.libelle;
+		
+		
+//		return this.nom 
+//				+ " Dep: " + this.codeDepartement 
+//				+ " Region : " + this.nomRegion
+//				+ " Population : " 
+//				+ this.populationTotale 
+//				+ " habitants "
+//				+ " continent : " + this.continent.libelle;
+		
+		return new StringBuilder()
+				.append(this.nom)
+				.append(" |Dep: ").append(this.nomRegion)
+				.append(" |").append(this.populationTotale).append(" habitants ")
+				.append(" |Continent : ").append(this.continent.libelle)				
+				.toString();
 	}
 
 	/** Getter
@@ -126,7 +146,6 @@ public class Ville implements Comparable<Ville> {
 	public String nom() {
 		return this.nom;
 	}
-
 	public String nomRegion() {
 		return this.nomRegion;
 	}

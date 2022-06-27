@@ -8,7 +8,6 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import fr.diginamic.entities.Ville;
-import fr.diginamic.tri.DepartmentComparator;
 import fr.diginamic.tri.TriType;
 import fr.diginamic.tri.VilleComparator;
 
