@@ -4,7 +4,7 @@ package fr.diginamic.banque.entites;
  * @author Vincent
  *
  */
-public abstract class Operation extends Object {
+public abstract class Operation extends Object {// héritage d'object est implicite pour toutes classe sans héritage
 	/** date de l'opération */
 	String date;
 	/** montant de l'opération */
