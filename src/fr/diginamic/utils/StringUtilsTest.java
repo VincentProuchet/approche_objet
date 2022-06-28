@@ -1,6 +1,5 @@
 package fr.diginamic.utils;
 
-import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -25,7 +24,9 @@ public class StringUtilsTest {
 	@Test (expected = NullPointerException.class)
 	public void testNull() {
 		assertEquals(null,StringUtils.levenshteinDistance(null, null));
-		
+		// avoir du code qui renvoit du nullpointer
+		// c'est pas bien
+		// fait des modification pour gérer le cas du null
 	}
 
 }
