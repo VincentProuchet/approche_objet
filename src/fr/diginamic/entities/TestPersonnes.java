@@ -1,5 +1,9 @@
 package fr.diginamic.entities;
-
+/** Classe de test des personnes
+ * 
+ * @author Formation
+ *
+ */
 public class TestPersonnes {
 
 	public static void main(String[] args) {
@@ -11,13 +15,13 @@ public class TestPersonnes {
 		
 		humain1.AfficherIdentite();
 		
-		humain1.SetPrenom("Robert");
-		System.out.println(humain1 + " " +    humain1.GetAdresse());
+		humain1.setPrenom("Robert");
+		System.out.println(humain1 + " " +    humain1.getAdresse());
 		//humain1.AfficherIdentite();
 		//humain1.GetAdresse().AfficheAdresse();
 		
 		humain2.AfficherIdentite();
-		humain2.GetAdresse().AfficheAdresse();
+		humain2.getAdresse().AfficheAdresse();
 		
 		
 		

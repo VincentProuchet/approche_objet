@@ -1,12 +1,25 @@
 package fr.diginamic.entities;
-
+/**Représente un salarié
+ * 
+ * @author Formation
+ *
+ */
 public class Salarie {
 
+	/**nom */
 	private String nom;
+	/**prenom */
 	private String prenom;
+	/**salaire */
 	private double salaire;
 	
 	
+	/** Constructeur
+	 * @param data tableau de valeurs 
+	 * [0] nom
+	 * [1] prenom
+	 * [2] salaire
+	 */
 	public Salarie(String[] data) {
 	
 		this.nom = data[0].toUpperCase();
@@ -16,7 +29,7 @@ public class Salarie {
 	}
 
 
-	/**
+	/** Getter
 	 * @return the nom
 	 */
 	public String getNom() {
@@ -24,7 +37,7 @@ public class Salarie {
 	}
 
 
-	/**
+	/** Getter
 	 * @return the prenom
 	 */
 	public String getPrenom() {
@@ -32,7 +45,7 @@ public class Salarie {
 	}
 	
 
-	/**
+	/** Getter
 	 * @return the salaire
 	 */
 	public double getSalaire() {
@@ -40,7 +53,7 @@ public class Salarie {
 	}
 
 
-	/**
+	/** Setter
 	 * @param salaire the salaire to set
 	 */
 	public void setSalaire(double salaire) {

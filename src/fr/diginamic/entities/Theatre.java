@@ -1,6 +1,6 @@
 package fr.diginamic.entities;
 /** TP J3
- * 
+ * Représente un theatre
  * @author Vincent
  *
  */
@@ -18,6 +18,11 @@ public class Theatre {
 		this.nom = nom;
 	}
 	
+	/** Inscrit un groupe de clients a la prochaine représentation
+	 * 
+	 * @param nb de personnes
+	 * @param prix unitaire du billet
+	 */
 	public void Incrire(int nb,double prix) {
 		if (this.totalClientsInscripts + nb <= this.capaciteMaxi) {
 			this.totalClientsInscripts  += nb;

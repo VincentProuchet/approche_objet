@@ -1,5 +1,9 @@
 package fr.diginamic.entities;
-
+/**Représente une adressePostale
+ * 
+ * @author Prouchet vincent
+ *
+ */
 public class AdressePostale extends Object {
 	/**numero dans la rue */
 	private int numeroRue;
