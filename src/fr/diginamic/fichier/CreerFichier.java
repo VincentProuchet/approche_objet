@@ -7,11 +7,19 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
+/**
+ * TP 15
+ * Classe de test 
+ * à pour but de nous former à la manipulation des fichiers
+ * ici la création
+ * @author Vincent
+ *
+ */
 public class CreerFichier {
 
 	/**TP 15
 	 * Ecrire les 100 premiers dans un autre fichier
+	 * 
 	 * @param args
 	 * @throws IOException
 	 */

@@ -4,7 +4,14 @@ import fr.diginamic.formes.Carre;
 import fr.diginamic.formes.Cercle;
 import fr.diginamic.formes.Formes;
 import fr.diginamic.formes.Rectangle;
-
+/** 
+ * classe de test des Formes 
+ * Cercle
+ * Rectangle 
+ * Carre
+ * @author Vincent
+ *
+ */
 public class TestForme {
 
 	public static void main(String[] args) {

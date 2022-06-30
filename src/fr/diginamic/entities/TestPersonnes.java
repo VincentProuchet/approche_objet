@@ -1,7 +1,7 @@
 package fr.diginamic.entities;
 /** Classe de test des personnes
  * 
- * @author Formation
+ * @author Vincent
  *
  */
 public class TestPersonnes {

@@ -1,8 +1,17 @@
 package fr.diginamic.formes;
-
+/**
+ *	représente 
+ * forme géométrique
+ * @author Vincent
+ *
+ */
 public class Cercle extends Formes {
+	/** rayon */
 	double rayon;
 	
+	/** Constructeur
+	 * @param rayon
+	 */
 	public Cercle(double rayon) {
 		this.rayon = rayon;
 	}

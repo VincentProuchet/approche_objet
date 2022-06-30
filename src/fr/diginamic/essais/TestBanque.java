@@ -4,7 +4,7 @@ import fr.diginamic.banque.entites.Compte;
 import fr.diginamic.banque.entites.CompteTaux;
 
 /** TP 8
- * 
+ * Classe de test de Compte et CompteTaux
  * @author Vincent
  *
  */
@@ -25,7 +25,7 @@ public class TestBanque {
 	}
 	/**La fonction ajoute la nouvelle variable
 	 * dans le tableau passé en paramètres 
-	 * ajusteras la taille si neccessaire
+	 * ajusteras la taille si nécessaire
 	 * 
 	 * @param nouvelleCreature valeur à ajouter au tableau
 	 * @param creatures[] tableau de destination

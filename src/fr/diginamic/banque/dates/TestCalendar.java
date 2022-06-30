@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 /** Classe pour tester l'API calendar de javaS
- * 
+ * e tsurtout voir à quel point elle est mal fichue
  * @author Vincent
  *
  */

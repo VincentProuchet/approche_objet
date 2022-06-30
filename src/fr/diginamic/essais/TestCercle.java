@@ -5,8 +5,8 @@ import geometrie.Cercle;
 /**	TP J3
  * 
  * @author Vincent
- *
- */
+ *	classe de test des objets Cercle et CercleFactory
+ */	
 public class TestCercle {
 
 	public static void main(String[] args) {

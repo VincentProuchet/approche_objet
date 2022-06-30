@@ -1,7 +1,11 @@
 package fr.diginamic.essais;
 
 import fr.diginamic.entities.AdressePostale;
-
+/** 
+ *  * @author Vincent
+ *	
+ *	classe de test d'AdressePostale
+ */
 public class TestAdressePostale {
 
 	public static void main(String[] args) {

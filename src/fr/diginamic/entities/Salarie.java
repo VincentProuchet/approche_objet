@@ -1,7 +1,8 @@
 package fr.diginamic.entities;
-/**Représente un salarié
+/** Représente un salarié
+ * pourrait être amélioré par l'intégration de la classe personne
  * 
- * @author Formation
+ * @author Vincent
  *
  */
 public class Salarie {

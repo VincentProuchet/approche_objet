@@ -3,7 +3,12 @@ package fr.diginamic.essais;
 import fr.diginamic.banque.entites.Credit;
 import fr.diginamic.banque.entites.Debit;
 import fr.diginamic.banque.entites.Operation;
-
+/** 
+ * application de test des classes débit et crédit
+ * un autre bon exemple de l'héritage
+ * @author Vincent
+ *
+ */
 public class TestOperation {
 
 	public static void main(String[] args) {

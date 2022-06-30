@@ -1,6 +1,14 @@
 package fr.diginamic.essais;
 
-// TP 04
+/**
+ * TP 04 
+ * Ce TP avait pour but de montrer qu'il existe déjà beaucoup de 
+ * méthodes intégré à JAVA
+ * Méthodes qui en plus d'être souvent très optimisées 
+ * peuvent faire gagner beaucoup de temps de développement
+ * @author Vincent
+ *
+ */
 public class TestMethodeStatic {
 
 	public static void main(String[] args) {

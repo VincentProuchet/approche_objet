@@ -1,7 +1,11 @@
 package fr.diginamic.essais;
 
 import fr.diginamic.entities.Ville;
-
+/** Classe de test de l'implémentation d'équals dans la classe Ville
+ * 
+ * @author Vincent
+ *
+ */
 public class TestEquals {
 
 	public static void main(String[] args) {

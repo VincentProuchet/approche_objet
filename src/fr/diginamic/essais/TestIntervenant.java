@@ -5,7 +5,7 @@ import fr.diginamic.salaire.Pigiste;
 import fr.diginamic.salaire.Salarie;
 /** TP J3 
  *  Calcul Salaire
- * 
+ *  Classe de test des classes Salarie et Pigistes
  * @author Vincent
  *
  */
@@ -33,18 +33,31 @@ public class TestIntervenant {
 		
 		
 	}
+	/** valide une journée 
+	 * pour chaque employés présents dans le tableau  
+	 * employesPresents
+	 * 
+	 */
 	public static void validerJournee() {
 		for(int i=0;i<employesPresents.length;i++) {
 			employesPresents[i].ValiderJournee();
 		}
 	}
-	
+	/** affiche les salaire de chaque employe
+	 * du tableau employesPresents
+	 * 
+	 */
 	public static void afficherSalaires() {
 		for(int i=0;i<employesPresents.length;i++) {
 			employesPresents[i].AfficherDonnees();
 			
 		}
 	}
+	
+	/**ajoute l'intervenant au tableau des présent
+	 * 
+	 * @param it intervenant à ajouter aux présents
+	 */
 	public static void Push(Intervenant it) {
 		// si le tableau n'a pas de taille
 		if (employesPresents == null) {

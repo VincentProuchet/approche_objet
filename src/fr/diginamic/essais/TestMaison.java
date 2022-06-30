@@ -6,7 +6,11 @@ import fr.diginamic.maison.Maison;
 import fr.diginamic.maison.SalleDeBain;
 import fr.diginamic.maison.Salon;
 import fr.diginamic.maison.WC;
-
+/** Classe de test des classe du package maison
+ * 
+ * @author Vincent
+ *
+ */
 public class TestMaison {
 
 	public static void main(String[] args) {

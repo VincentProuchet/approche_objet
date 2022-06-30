@@ -4,6 +4,10 @@ import geometrie.ObjetGeometrique;
 
 /** TP 9 
  * interfaces faciles
+ * 
+ * ou comment assurer le développeur
+ * que ses classes pourront être utilisée par certaines fonctionnalités de l'application
+ * en le forçant à faire une implementation des méthodes qui seraient appelles 
  * @author Vincent
  *
  */

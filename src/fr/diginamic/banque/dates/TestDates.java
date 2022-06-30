@@ -11,7 +11,7 @@ import java.util.Date;
 
 import javax.print.attribute.standard.DateTimeAtCompleted;
 /**Classe pour tester l'API Date de Java
- * 
+ * et voir que c'est pas vraiment mieux que Date
  * @author Vincent
  *
  */

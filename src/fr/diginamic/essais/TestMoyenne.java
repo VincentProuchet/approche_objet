@@ -19,6 +19,11 @@ public class TestMoyenne {
 		System.out.println("moyenne : " +classe1.Calcul());
 	}
 
+	/** créer le jeux de donnée à partir d'un tableaux
+	 * 
+	 * @param a
+	 * @return une instance de calcul moyenne
+	 */
 	private static CalculMoyenne WhatAreTheNumbers(double[] a) {
 		CalculMoyenne table = new CalculMoyenne();
 		for (int i = 0; i < a.length; i++) {
