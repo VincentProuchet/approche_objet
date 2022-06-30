@@ -27,20 +27,6 @@ public class ManipulationChaine {
 		
 		
 	}
-	
-	/**affiche les données d'un tableau
-	 * sous la forme d'un tableau dans la console de commande 
-	 * @param <T> 
-	 * @param tableau
-	 */
-	public static <T> void  AfficheTableau(T[]tableau) {
-			System.out.println("Le tableau contient ");
-		
-		for (int i = 0; i < tableau.length; i++) {
-				System.out.println(tableau[i]);
-			}
-			System.out.println("");
-		}
-	}
+}
 
 

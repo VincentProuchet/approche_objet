@@ -5,23 +5,33 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import fr.diginamic.testenumeration.Continent;
 
 /**
+ * Représente une ville
  * 
  * @author Vincent
  *
  */
 public class Ville implements Comparable<Ville> {
 
+	/** code de la region */
 	private String codeDeRegion;
+	/** nom de la region */
 	private String nomRegion;
+	/** code du departement */
 	private String codeDepartement;
+	/** code De Commune */
 	private String codeDeCommune;
+	/** nom de la ville */
 	private String nom;
-	
+
+	/** continent */
 	private Continent continent = Continent.ND;
 
+	/** populationTotale selon dernier recensement */
 	private int populationTotale;
 
 	/**
+	 * Constructeur
+	 * 
 	 * @obsolete laissé pour compatibilité avec ancien code
 	 * 
 	 * @param nom
@@ -29,6 +39,7 @@ public class Ville implements Comparable<Ville> {
 	 * @param region
 	 * @param population
 	 */
+	@Deprecated
 	public Ville(String nom, String codeDepartement, String region, String population) {
 		this.nom = nom;
 		this.codeDepartement = codeDepartement;
@@ -36,81 +47,84 @@ public class Ville implements Comparable<Ville> {
 		this.populationTotale = Integer.parseInt(population);
 
 	}
-/**
- * Constructeur
- * @param ligne
- */
+
+	/**
+	 * Constructeur passez lui une ligne avec les propriétés séparée par des points
+	 * virgules il se chargeras de les traiter et de peupler les propriétés de l'instance
+	 * format :
+	 * codeDeRegion;nomRegion;codeDepartement;;;codeDeCommune ;nom ;populationTotale	 * 
+	 * population totale doit TOUJOURS être à la fin et pouvoir être transformé en nombre
+	 * sinon l'instance échoue
+	 * @param ligne
+	 */
 	public Ville(String ligne) {
 		String[] data = ligne.split(";");
-		this.codeDeRegion = data[0];
-		this.nomRegion = data[1];
-		this.codeDepartement = data[2];
+		if (data.length >= 8) {
+			this.codeDeRegion = data[0];
+			this.nomRegion = data[1];
+			this.codeDepartement = data[2];
 
-		this.codeDeCommune = data[5];
-		this.nom = data[6];
-		this.populationTotale = Integer.parseInt(data[data.length - 1].trim().replaceAll(" ", ""));
-
+			this.codeDeCommune = data[5];
+			this.nom = data[6];
+			this.populationTotale = Integer.parseInt(data[data.length - 1].trim().replaceAll(" ", ""));
+		}
 	}
-/**
- * Constructeur
- * @param nom
- * @param nbhabitant
- */
+
+	/**
+	 * Constructeur
+	 * 
+	 * @param nom
+	 * @param nbhabitant
+	 */
 	public Ville(String nom, long nbhabitant) {
 		this.nom = nom;
 		this.populationTotale = (int) nbhabitant;
 
 	}
-/**
- * Constructeur
- * @param nom
- * @param nbhabitant
- */
+
+	/**
+	 * Constructeur
+	 * 
+	 * @param nom
+	 * @param nbhabitant
+	 */
 	public Ville(String nom, int nbhabitant) {
 		this.nom = nom;
 		this.populationTotale = nbhabitant;
 
 	}
+
+	/** Constructeur
+	 * @param nom
+	 * @param continent
+	 */
 	public Ville(String nom, Continent continent) {
 		this.nom = nom;
 		this.continent = continent;
 
 	}
-	public int getPopulation() {
-		return this.populationTotale;
-	}
-
-	public String getNom() {
-		return this.nom;
-	}
-	public String getName() {
-		return this.nom;
-	}
-
-	public void capitalizeNom() {
-		this.nom = this.nom.toUpperCase();
+	/** retourne le nom en lettres capitale
+	 * pas vraiment utile
+	 * @return nom de l'instance en lettres capitales
+	 */
+	public String getCapitalizedNom() {
+		return this.nom.toUpperCase();
 	}
 
 	/**
-	 * @return Les proriètées de la ville sous forme de chaine au format CSV avec
+	 * @return Les propriétés de la ville sous forme de chaîne au format CSV avec
 	 *         ";" comme séparateur
 	 */
 	public String toCSV() {
-		return new StringBuilder()
-				.append(this.nom)
-				.append(";").append(this.codeDepartement)
-				.append(";").append(this.nomRegion)
-				
-				.append(";").append(this.populationTotale)
-				.append(";")
-				.toString()
-				;
+		return new StringBuilder().append(this.nom).append(";").append(this.codeDepartement).append(";")
+				.append(this.nomRegion)
+
+				.append(";").append(this.populationTotale).append(";").toString();
 	}
 
 	@Override
 	public String toString() {
-		
-		
+
 //		return this.nom 
 //				+ " Dep: " + this.codeDepartement 
 //				+ " Region : " + this.nomRegion
@@ -118,53 +132,35 @@ public class Ville implements Comparable<Ville> {
 //				+ this.populationTotale 
 //				+ " habitants "
 //				+ " continent : " + this.continent.libelle;
-		
-		return new StringBuilder()
-				.append(this.nom)
-				.append(" |Dep: ").append(this.nomRegion)
-				.append(" |").append(this.populationTotale).append(" habitants ")
-				.append(" |Continent : ").append(this.continent.libelle)				
-				.toString();
+
+		return new StringBuilder().append(this.nom).append(" |Dep: ").append(this.nomRegion).append(" |")
+				.append(this.populationTotale).append(" habitants ").append(" |Continent : ")
+				.append(this.continent.libelle).toString();
 	}
 
-	/** Getter
+	/**
+	 * Getter
+	 * 
 	 * @return the continent
 	 */
 	public Continent getContinent() {
 		return continent;
 	}
-	/** Setter
+
+	/**
+	 * Setter
+	 * 
 	 * @param continent the continent to set
 	 */
 	public void setContinent(Continent continent) {
 		this.continent = continent;
 	}
-	public int populationTotale() {
-		return this.populationTotale;
-	}
 
-	public String nom() {
-		return this.nom;
-	}
-	public String nomRegion() {
-		return this.nomRegion;
-	}
 
-	public String codeDeCommune() {
-		return this.codeDeCommune;
-	}
-
-	public String codeDeRegion() {
-		return this.codeDeRegion;
-	}
-
-	public String codeDeDepartement() {
-		return this.codeDepartement;
-	}
 
 	@Override
 	public int compareTo(Ville o) {
-		return this.nom.compareTo(o.nom());
+		return this.nom.compareTo(o.getNom());
 	}
 
 	@Override
@@ -176,7 +172,7 @@ public class Ville implements Comparable<Ville> {
 			// parce que ça permet l'auto-completion
 			Ville other = (Ville) object;
 			boolean equalityNom = new EqualsBuilder().append(this.nom, other.getNom()).isEquals();
-			boolean equalityNumCommune = new EqualsBuilder().append(this.codeDeCommune, other.codeDeCommune())
+			boolean equalityNumCommune = new EqualsBuilder().append(this.codeDeCommune, other.getCodeDeCommune())
 					.isEquals();
 
 			if (equalityNom && equalityNumCommune) {
@@ -185,6 +181,90 @@ public class Ville implements Comparable<Ville> {
 		}
 		return false;
 
+	}
+
+	/** Getter
+	 * @return the codeDeRegion
+	 */
+	public String getCodeDeRegion() {
+		return codeDeRegion;
+	}
+
+	/** Getter
+	 * @return the nomRegion
+	 */
+	public String getNomRegion() {
+		return nomRegion;
+	}
+
+	/** Getter
+	 * @return the codeDepartement
+	 */
+	public String getCodeDepartement() {
+		return codeDepartement;
+	}
+
+	/** Getter
+	 * @return the codeDeCommune
+	 */
+	public String getCodeDeCommune() {
+		return codeDeCommune;
+	}
+
+	/** Getter
+	 * @return the nom
+	 */
+	public String getNom() {
+		return nom;
+	}
+
+	/** Getter
+	 * @return the populationTotale
+	 */
+	public int getPopulationTotale() {
+		return populationTotale;
+	}
+
+	/** Setter
+	 * @param codeDeRegion the codeDeRegion to set
+	 */
+	public void setCodeDeRegion(String codeDeRegion) {
+		this.codeDeRegion = codeDeRegion;
+	}
+
+	/** Setter
+	 * @param nomRegion the nomRegion to set
+	 */
+	public void setNomRegion(String nomRegion) {
+		this.nomRegion = nomRegion;
+	}
+
+	/** Setter
+	 * @param codeDepartement the codeDepartement to set
+	 */
+	public void setCodeDepartement(String codeDepartement) {
+		this.codeDepartement = codeDepartement;
+	}
+
+	/** Setter
+	 * @param codeDeCommune the codeDeCommune to set
+	 */
+	public void setCodeDeCommune(String codeDeCommune) {
+		this.codeDeCommune = codeDeCommune;
+	}
+
+	/** Setter
+	 * @param nom the nom to set
+	 */
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	/** Setter
+	 * @param populationTotale the populationTotale to set
+	 */
+	public void setPopulationTotale(int populationTotale) {
+		this.populationTotale = populationTotale;
 	}
 
 }

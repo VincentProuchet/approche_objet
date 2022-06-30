@@ -19,8 +19,8 @@ public class PopulationDepartement extends MenuService {
 
 		case Code:
 			for (Ville v : recensement.getVilles()) {
-				if (v.codeDeDepartement().strip().toLowerCase().equals(this.departementRecherchee)) {
-					this.population += v.getPopulation();
+				if (v.getCodeDepartement().strip().toLowerCase().equals(this.departementRecherchee)) {
+					this.population += v.getPopulationTotale();
 				}
 			}
 			break;

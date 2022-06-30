@@ -15,6 +15,7 @@ import fr.diginamic.jdr.Troll;
  * @author Vincent
  *
  */
+//TODO refactorer en test unitaire
 public class TestJdr {
 
 	public static void main(String[] args) {
@@ -56,7 +57,7 @@ public class TestJdr {
 						+ creature[i].getForce()
 						+ "\n points de vie : "
 						+ creature[i].getPointsDeVie() +
-						"\n elle donne : " + creature[i].getPoints() + " points \n"
+						"\n elle donne : " + creature[i].getScorePoints() + " points \n"
 						+"_____________________________________________"
 						);
 			}
@@ -68,7 +69,7 @@ public class TestJdr {
 	 * @param personnage
 	 */
 	public static void afficherScore(Personnage personnage) {
-		System.out.println("\n score : " + personnage.getPoints() + "\n");
+		System.out.println("\n score : " + personnage.getScorePoints() + "\n");
 	}
 	/** ajoute l'objet passé en paramètre
 	 * dans le tableau passé en paramètre

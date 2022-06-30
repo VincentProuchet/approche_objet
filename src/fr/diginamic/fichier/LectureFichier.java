@@ -38,7 +38,7 @@ public class LectureFichier {
 				// TODO: I will ignore that
 			}
 		}
-		// appelle tdu compareTo intégré de la classe Ville 
+		// appelle du compareTo intégré de la classe Ville 
 		// celle-ci va trier par ordre alphabétique
 		Collections.sort(villes);
 		
@@ -46,7 +46,7 @@ public class LectureFichier {
 		newLignes.add(" nom de la commune ; code département; Région; poulation totale;");		
 		// mise en forme du nouveau document
 		for(Ville v: villes) {
-			if(v.populationTotale()>25000) {
+			if(v.getPopulationTotale()>25000) {
 				newLignes.add(v.toCSV());
 			}
 			
@@ -99,6 +99,9 @@ public class LectureFichier {
 	 * @param lines
 	 */
 	public static <T> void consoleOut(List <T> lines) {
+		// j'aurais put faire un for 
+		// j'ai juste voulu experimenter le while 
+		// et l'iterator
 		Iterator<T> iter = lines.iterator();
 		iter.next();
 		while(iter.hasNext()) {

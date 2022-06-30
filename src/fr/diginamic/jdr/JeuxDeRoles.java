@@ -120,7 +120,7 @@ public class JeuxDeRoles {
 		if(jeux.joueur != null) {
 			System.out.println(
 					"Vous avez : " +
-					((Personnage) jeux.joueur).getPoints()
+					((Personnage) jeux.joueur).getScorePoints()
 					+" points \n");
 		}
 	}
@@ -176,7 +176,7 @@ public class JeuxDeRoles {
 					 */
 					if(this.joueur.getPointsDeVie()<= 0) {
 						rapport = "\n votre personage est mort."
-								+ "\n vous avons gagné "+ this.joueur.getPoints()+" points"
+								+ "\n vous avons gagné "+ this.joueur.getScorePoints()+" points"
 								+ "\n"
 								;
 						System.out.println(rapport);
@@ -193,8 +193,8 @@ public class JeuxDeRoles {
 	
 	public void rapportDeCombat() {
 		String rapport = "Vous avez vaincu le "+ this.ennemie.getClass().getSimpleName()
-				+ "\n et gagné "+ this.ennemie.getPoints() +" points"
-				+ "\n votre score et de "+ this.joueur.getPoints() + " points";
+				+ "\n et gagné "+ this.ennemie.getScorePoints() +" points"
+				+ "\n votre score et de "+ this.joueur.getScorePoints() + " points";
 		
 		System.out.println(rapport);
 				

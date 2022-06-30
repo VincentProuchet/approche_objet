@@ -19,15 +19,15 @@ public class PopulationRegion extends MenuService {
 
 		case Code:
 			for (Ville v : recensement.getVilles()) {
-				if (v.codeDeRegion().strip().toLowerCase().equals(this.regionRecherchee)) {
-					this.population += v.getPopulation();
+				if (v.getCodeDeRegion().strip().toLowerCase().equals(this.regionRecherchee)) {
+					this.population += v.getPopulationTotale();
 				}
 			}
 			break;
 		case Nom:
 			for (Ville v : recensement.getVilles()) {
-				if (v.nomRegion().strip().toLowerCase().equals(this.regionRecherchee)) {
-					this.population += v.getPopulation();
+				if (v.getNomRegion().strip().toLowerCase().equals(this.regionRecherchee)) {
+					this.population += v.getPopulationTotale();
 				}
 			}
 			break;

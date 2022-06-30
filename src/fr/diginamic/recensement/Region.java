@@ -31,8 +31,8 @@ public class Region {
 	 */
 	public Region(Ville ville) {
 		this.departements = new HashSet<>();
-		this.code = ville.codeDeRegion();
-		this.nom = ville.nomRegion();
+		this.code = ville.getCodeDeRegion();
+		this.nom = ville.getNomRegion();
 	}
 
 	/**ajouter un département dans la région

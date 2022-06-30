@@ -33,13 +33,23 @@ public class Theatre {
 		}
 	}
 	
-	public int totalInscripts() {
+	/** Getter
+	 * @return le nombre d'inscript à une session
+	 */
+	public int getTotalInscripts() {
 		return this.totalClientsInscripts;
 }
+	
+	/** Getter retourne le chiffre d'affaire de la saison
+	 * @return
+	 */
 	public double Recette() {
 		return this.chiffreDAffaire;
 	}
-	public String GetNom() {
+	/** Getter
+	 * @return le nom du theatre
+	 */
+	public String getNom() {
 		return this.nom;
 	}
 }

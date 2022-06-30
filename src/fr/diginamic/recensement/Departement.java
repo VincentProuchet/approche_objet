@@ -24,10 +24,10 @@ public class Departement {
 	public void ajouter(List<Ville> liste) {
 		for (Ville v : liste) {
 
-			if (v.codeDeDepartement().equals(codeDepartement)) {
+			if (v.getCodeDepartement().equals(codeDepartement)) {
 				this.villes.add(v);
-				this.codeRegion = v.codeDeRegion();
-				this.nomRegion = v.nomRegion();
+				this.codeRegion = v.getCodeDeRegion();
+				this.nomRegion = v.getNomRegion();
 			}
 		}
 
@@ -39,10 +39,10 @@ public class Departement {
 	 * @param Ville à ajouter
 	 */
 	public void ajouter(Ville v) {
-		if (v.codeDeDepartement().equals(codeDepartement)) {
+		if (v.getCodeDepartement().equals(codeDepartement)) {
 			this.villes.add(v);
-			this.codeRegion = v.codeDeRegion();
-			this.nomRegion = v.nomRegion();
+			this.codeRegion = v.getCodeDeRegion();
+			this.nomRegion = v.getNomRegion();
 		}
 	}
 
@@ -55,7 +55,7 @@ public class Departement {
 	public int population() {
 		int population = 0;
 		for (Ville v : this.villes) {
-			population += v.getPopulation();
+			population += v.getPopulationTotale();
 		}
 		return population;
 	}

@@ -14,7 +14,7 @@ public class Personnage extends Creature{
 	}
 	
 	public void Score(Creature creature) {
-		this.scorePoints += creature.getPoints();
+		this.scorePoints += creature.getScorePoints();
 	}
 
 }

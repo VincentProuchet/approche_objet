@@ -19,7 +19,7 @@ public class mapVilles {
 		// on s'assure que data soit soit initialisé
 		data = new HashMap<String,Ville>();
 			for(Ville v: records.getVilles()) {
-				data.put(v.nom(), v);
+				data.put(v.getNom(), v);
 			}
 		System.out.println("il y a :"+data.size()+ " villes dans la table");
 		
@@ -30,7 +30,7 @@ public class mapVilles {
 			if(lemoinspeuple == null) {
 				lemoinspeuple = v;
 			}
-			else if(lemoinspeuple.populationTotale()>  v.populationTotale()) {
+			else if(lemoinspeuple.getPopulationTotale()>  v.getPopulationTotale()) {
 				lemoinspeuple = v;
 				
 			}

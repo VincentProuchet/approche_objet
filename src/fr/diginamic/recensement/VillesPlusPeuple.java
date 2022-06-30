@@ -40,7 +40,7 @@ public class VillesPlusPeuple extends MenuService{
 				Ville ville = iterVille.next();
 
 				System.out.println(ville + "__________________ "
-						+ NumberFormat.getInstance(Locale.FRANCE).format(ville.populationTotale()) + " habitants");
+						+ NumberFormat.getInstance(Locale.FRANCE).format(ville.getPopulationTotale()) + " habitants");
 				i++;
 			}
 		} else {

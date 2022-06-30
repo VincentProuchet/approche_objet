@@ -39,21 +39,21 @@ public class VilleComparator implements Comparator<Ville> {
 	}
 
 	private int parPopulation() {
-		if (v1.populationTotale() > v2.populationTotale()) {
+		if (v1.getPopulationTotale() > v2.getPopulationTotale()) {
 			return -1;
-		} else if (v1.populationTotale() < v2.populationTotale()) {
+		} else if (v1.getPopulationTotale() < v2.getPopulationTotale()) {
 			return 1;
 		}
 
 		return 0;
 	}
 	private int parOrdreAlphabetique() {
-		return this.v1.nom().compareTo(this.v2.nom());
+		return this.v1.getNom().compareTo(this.v2.getNom());
 	}
 	private int parDepartement() {
-		return this.v1.codeDeDepartement().compareTo(this.v2.codeDeDepartement());
+		return this.v1.getCodeDepartement().compareTo(this.v2.getCodeDepartement());
 	}
 	private int parRegion() {
-		return this.v1.codeDeRegion().compareTo(this.v2.codeDeRegion());
+		return this.v1.getCodeDeRegion().compareTo(this.v2.getCodeDeRegion());
 	}
 }

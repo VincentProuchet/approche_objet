@@ -19,7 +19,7 @@ public class TestTheatre {
 		newPlace.Incrire(1000, 10);
 		newPlace.Incrire(300, 5);
 		
-		System.out.println(newPlace.totalInscripts());
+		System.out.println(newPlace.getTotalInscripts());
 		System.out.println(newPlace.Recette());
 		
 		

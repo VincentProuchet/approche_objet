@@ -8,10 +8,10 @@ public class ComparatorHabitant implements Comparator<Ville> {
 
 	@Override
 	public int compare(Ville o1, Ville o2) {
-		if(o1.populationTotale()> o2.populationTotale()) {
+		if(o1.getPopulationTotale()> o2.getPopulationTotale()) {
 			return -1;
 		}
-		else if(o1.populationTotale()< o2.populationTotale()) {
+		else if(o1.getPopulationTotale()< o2.getPopulationTotale()) {
 			return 1;
 		}
 		

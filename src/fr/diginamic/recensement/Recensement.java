@@ -68,26 +68,26 @@ public class Recensement {
 		// on initialise les courants si ils ne le sont pas
 		if (this.etat == EtatRecensement.PremiersEnregistrements) {
 			// create a new département
-			this.currentDepartement = new Departement(ville.codeDeDepartement());
+			this.currentDepartement = new Departement(ville.getCodeDepartement());
 			this.etat = EtatRecensement.NouveauDepartement;
 
 		}
 		// on vérifie le code demandé avec le courant
-		if (!this.currentDepartement.codeDepartement().equals(ville.codeDeDepartement())) {
+		if (!this.currentDepartement.codeDepartement().equals(ville.getCodeDepartement())) {
 			// si ils ne correspondent pas
 			// chercher dans la liste
 			for (Departement d : this.departements) {
 				// le mettre en courant si il existe
-				if (ville.codeDeDepartement().equals(d.codeDepartement())) {
+				if (ville.getCodeDepartement().equals(d.codeDepartement())) {
 					this.currentDepartement = d;
 				}
 
 			}
 			// on vérifie si il a été trouvé dans la liste
-			if (!this.currentDepartement.codeDepartement().equals(ville.codeDeDepartement())) {
+			if (!this.currentDepartement.codeDepartement().equals(ville.getCodeDepartement())) {
 				// si il n'a pas été trouvé
 				// on en créer un tout neuf
-				this.currentDepartement = new Departement(ville.codeDeDepartement());
+				this.currentDepartement = new Departement(ville.getCodeDepartement());
 				// à voir si l'ont ne vas pas regrouper l'ajout des données
 				// marqué pour ajout à la liste
 				this.etat = EtatRecensement.NouveauDepartement;
@@ -113,7 +113,7 @@ public class Recensement {
 			if (this.regions.size() > 0) {// mais on vérifie d'abord qu'elle ne soit pas vide
 				for (Region d : this.regions) {
 					// le mettre en courant si il existe
-					if (ville.codeDeRegion().equals(d.code())) {
+					if (ville.getCodeDeRegion().equals(d.code())) {
 						this.currentRegion = d;
 					}
 
@@ -125,7 +125,7 @@ public class Recensement {
 				this.etat = EtatRecensement.NouvelleRegion;
 			}
 			// on vérifie si il a été trouvé dans la liste
-			if (!this.currentRegion.code().equals(ville.codeDeRegion())) {
+			if (!this.currentRegion.code().equals(ville.getCodeDeRegion())) {
 				// si il n'a pas été trouvé
 				// on en créer un tout neuf
 				this.currentRegion = new Region(ville);

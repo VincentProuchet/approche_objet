@@ -25,22 +25,22 @@ public class TestVille {
 		
 		for(Ville ville : villes) {
 			// trouver la plus peuplée
-			if(ville.getPopulation()> laPlusPeuplee.getPopulation()) {
+			if(ville.getPopulationTotale()> laPlusPeuplee.getPopulationTotale()) {
 				laPlusPeuplee =ville; 
 			}
 			// majuscule pour les villes de plus de 100 000 habitants
-			if(ville.getPopulation()> 100_000) {
-				ville.capitalizeNom(); 
+			if(ville.getPopulationTotale()> 100_000) {
+				ville.getCapitalizedNom(); 
 			}
 			// trouver la moins peuplée
-			if(ville.getPopulation()< laMoinsPeuplee.getPopulation()) {
+			if(ville.getPopulationTotale()< laMoinsPeuplee.getPopulationTotale()) {
 				laMoinsPeuplee =ville;				
 			}
 			
 		}
 		villes.remove(laMoinsPeuplee);
 		for(Ville list: villes) {
-			System.out.println("- "+list.getNom()+", "+list.getPopulation()+" habitants.");
+			System.out.println("- "+list.getNom()+", "+list.getPopulationTotale()+" habitants.");
 		}
 		
 	}
