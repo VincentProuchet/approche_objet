@@ -3,19 +3,29 @@ package fr.diginamic.jdr;
 import java.util.Random;
 import java.util.Scanner;
 
+/* Classe principale du package
+ * @author Vincent
+ *
+ */
 public class JeuxDeRoles {
 	
+	/** singleton de lui-même */
 	static JeuxDeRoles jeux;
+	/** Entrée utilisateur */
 	Scanner UserEntry;
+	/** random pour la génération  */
 	Random random;
+	/** instance du joueur */
 	Personnage joueur;
+	/** ennemi courant */
 	Creature ennemie;
-	int selection =  0; // selection dans les menus
+	/** gestion de la selection des menus */
+	int selection =  0; 
 	
 	public static void main(String[] args) {
-		
+		// on commence par créer l'instance
 		JeuxDeRoles.jeux = new JeuxDeRoles();
-		//jeux.creationDePersonnage();
+		
 		
 		///////////////////////
 		// boucle principale //
@@ -59,14 +69,16 @@ public class JeuxDeRoles {
 	/** CONSTRUCTEUR
 	 * 
 	 */
-	public JeuxDeRoles() {
+	private JeuxDeRoles() {
 		this.UserEntry = new Scanner(System.in);
 		this.random = new Random();
 		
 		
 	}
 	
-	
+	/**affiche un menu dans la console
+	 * 
+	 */
 	public void MenuPrincipal() {
 		System.out.println(
 				" Que voulez-vous faire ? \n"
@@ -78,6 +90,8 @@ public class JeuxDeRoles {
 	}
 	/**
 	 * créer un nouveau personnage pour le joueur
+	 * et affiche ses statistique
+	 * TODO séparer les deux événements 
 	 */
 	public void creationDePersonnage() {
 		jeux.joueur = new Personnage();
@@ -88,7 +102,7 @@ public class JeuxDeRoles {
 				+"\n");
 	}
 	/** créer une créature selectionnée aléatoirement
-	 * 
+	 * 	et affiche le  nom de sa classe
 	 */
 	public void creationEnnemi(){
 		
@@ -112,11 +126,10 @@ public class JeuxDeRoles {
 		System.out.println(rapport);
 		
 	}
-	/**
+	/** affiche le score
 	 * 
 	 */
 	public void afficheScore() {
-		// TODO
 		if(jeux.joueur != null) {
 			System.out.println(
 					"Vous avez : " +
@@ -124,7 +137,8 @@ public class JeuxDeRoles {
 					+" points \n");
 		}
 	}
-	/**
+	/** execute un combat
+	 * entre this.joueur et this.ennemy
 	 * 
 	 */
 	public void combat() {
@@ -138,6 +152,7 @@ public class JeuxDeRoles {
 		String rapport = "\n Le personnage est mort"
 				+ "vous devez en créer un nouveau "
 				+ "pour combattre";
+		
 		if (this.joueur.getPointsDeVie() > 0) {
 				rapport = "";
 				int attaqueJoueur = this.joueur.attaque();
@@ -157,23 +172,12 @@ public class JeuxDeRoles {
 						// on créer un nouvel ennemi
 						this.creationEnnemi();
 						
-						
-					}
-					else {
-						/*
-						 * rapport = "\n vous blessez le " + this.ennemie.getClass().getSimpleName() +
-						 * "\n il lui reste " + this.ennemie.getPointsDeVie() ;
-						 */
 					}
 				} 
 				// si le joueur perd la manche
 				else {
 					this.joueur.prendreDegat(attaqueJoueur - attaqueEnnemie);
-					/*
-					 * rapport = "\n le " + this.ennemie.getClass().getSimpleName() +
-					 * " blesse votre personnage " + "\n il lui reste " +
-					 * this.joueur.getPointsDeVie();
-					 */
+					// si le joueur est mort
 					if(this.joueur.getPointsDeVie()<= 0) {
 						rapport = "\n votre personage est mort."
 								+ "\n vous avons gagné "+ this.joueur.getScorePoints()+" points"
@@ -190,7 +194,9 @@ public class JeuxDeRoles {
 			
 		}
 	}
-	
+	/** affiche un rapport du combat lorsque le joueur vainc une créature.
+	 * 
+	 */
 	public void rapportDeCombat() {
 		String rapport = "Vous avez vaincu le "+ this.ennemie.getClass().getSimpleName()
 				+ "\n et gagné "+ this.ennemie.getScorePoints() +" points"
@@ -201,41 +207,16 @@ public class JeuxDeRoles {
 				
 		
 	}
-	/**
-	 * 
+	/** 
+	 * execute les taches de sauvegardes
+	 * et affiche un gentil message 
+	 * en console
 	 */
 	public void quitterJeux() {
 		//TODO gerer ici toute logique lorsque le joueur quitte le jeu
 		System.out.println("Merci d'avoir joué !");
 	}
-	/**
-	 * NOT MINE 
-	 * Merci StackOverFlow
-	 * https://stackoverflow.com/questions/2979383/how-to-clear-the-console
-	 */
-	public final static void clearConsole()
-	{
-	    try
-	    {
-	        final String os = System.getProperty("os.name");
-	        
-	        if (os.contains("Windows"))
-	        {
-	        	 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-	        }
-	        else if (os.contains("Linux"))
-	        {
-	        	System.out.print("\033\143");
-	        }
-	        else {
-	        	System.out.print('\u000C');
-	        }
-	    }
-	    catch (final Exception e)
-	    {
-	        //  Handle any exceptions.
-	    }
-	}
+
 }
 	
 

@@ -6,6 +6,11 @@ import java.util.Iterator;
 
 import fr.diginamic.sets.Pays;
 
+/**
+ * classe de test de la classe Pays
+ * @author Vincent
+ *
+ */
 public class TestPays {
 	
 

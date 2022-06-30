@@ -5,6 +5,10 @@ import java.util.List;
 
 import fr.diginamic.entities.Ville;
 
+/** Classe de test de la classe Ville
+ * @author Vincent
+ *
+ */
 public class TestVille {
 
 	public static void main(String[] args) {
@@ -38,6 +42,7 @@ public class TestVille {
 			}
 			
 		}
+		// on retire la moins peuplée
 		villes.remove(laMoinsPeuplee);
 		for(Ville list: villes) {
 			System.out.println("- "+list.getNom()+", "+list.getPopulationTotale()+" habitants.");

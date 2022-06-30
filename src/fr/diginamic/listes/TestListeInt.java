@@ -1,17 +1,19 @@
 package fr.diginamic.listes;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 
 
+/**
+ * tester les liste d'entiers
+ * @author Vincent
+ *
+ */
 public class TestListeInt {
 
 	public static void main(String[] args) {
-		
-		
-		
-		
 		
 		List<Integer> nombres = new ArrayList<>();
 		nombres.add(-1);
@@ -27,49 +29,31 @@ public class TestListeInt {
 		
 		
 		System.out.println("Les nombres dans la listes sont :");
+		
 		for(Integer list: nombres) {
-			if(list.intValue()> plusGrandNombre.intValue() ) {
-				plusGrandNombre = list;
-			}
-			if(list.intValue() < plusPetitNombre.intValue() ) {
-				plusPetitNombre = list;
-			}
+			// je n'ai pas trouvé de méthode intégré pour ça
+			
+			plusGrandNombre = Math.max(plusGrandNombre,list);
+			plusPetitNombre = Math.min(plusPetitNombre, list);
 			System.out.println(list);
 		}
-		
+		System.out.println("________________________________________________________________");
 		System.out.println("Taille de la liste:" +nombres.size() );
 		System.out.println("Plus grand entier dans la liste : " + plusGrandNombre.intValue()) ;
 		nombres.remove(plusPetitNombre);
 		System.out.println("On retire le plus petit :");
 		for(Integer list: nombres) {
 			System.out.println(list);
-			
-			
 		}
-		
-		// ne fonctionne pas edans ce cas
-		//Iterator<Integer> iter = nombres.iterator();
-//		while(iter.hasNext()) {
-//			Integer number = iter.next();
-//			nombres.set(iter, Math.abs(number));
-//		}
-		//Ne fonctionne pas non plus dans ce cas
-//		for(Integer number: nombres) {
-//			number =  Math.abs(number);
-//		}
 	
-		
 		for(int i=0; i<nombres.size();i++) {
-			
 			nombres.set(i, Math.abs(nombres.get(i)));
 		}
+		System.out.println("________________________________________________________________");
 		System.out.println("Les nombres rendus positif :");
 		for(Integer list: nombres) {
 			System.out.println(list);
 		}
-		
-		
-
 	}
 
 }
