@@ -3,7 +3,12 @@ package fr.diginamic.recensement;
 import java.io.IOException;
 import java.util.Scanner;
 
+import com.github.lalyos.jfiglet.FigletFont;
+
 public class Application {
+	//// messages ////
+	static String messageDeBienvenue = "Service de recensement.";
+
 
 	static Application self;
 	private ApplicationState etat = ApplicationState.Demarrage;
@@ -13,9 +18,10 @@ public class Application {
 	public String fileName = "recensement.csv";
 	private Recensement enregistrements;
 
+	
 	public static void main(String[] args) throws IOException {
 
-		System.out.println("Bienvenu dans le service de recensement.");
+		System.out.println(FigletFont.convertOneLine(messageDeBienvenue));
 		self = new Application();
 		self.enregistrements = new Recensement(self.dataFile + "\\" + self.fileName);
 		self.etat = ApplicationState.AfficherMenuPrincipal;

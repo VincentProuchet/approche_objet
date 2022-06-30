@@ -19,9 +19,18 @@
 		</plugins>
 	</build>
 	<dependencies>
+		<dependency>
+		<!-- Un chouette librairie pour faire de l'ascii art
+			
+		 -->
+			<groupId>com.github.lalyos</groupId>
+			<artifactId>jfiglet</artifactId>
+			<version>0.0.3</version>
+		</dependency>
 
 
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring -->
+		<!-- 
+		https://mvnrepository.com/artifact/org.springframework/spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring</artifactId>
