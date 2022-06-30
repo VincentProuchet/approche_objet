@@ -8,9 +8,15 @@ package fr.diginamic.maison;
  */
 public class Maison {
 
+	/** pieces de la maison */
 	Piece[] pieces;
+	/** taille Minimale Des Pieces */
 	double tailleMiniDesPieces = 0;
+	/** dernier étage  aucune piece ne pourras être ajoutée à un étage supérieur*/
 	int etageMaxi;
+	/** dernier étage  aucune piece ne pourras être ajoutée à un étage inférieur*/
+	int etageMini = 0;
+
 
 	/**
 	 * 
