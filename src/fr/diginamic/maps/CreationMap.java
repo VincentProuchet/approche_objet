@@ -1,7 +1,11 @@
 package fr.diginamic.maps;
 
 import java.util.HashMap;
-
+/**
+ * classe d'exemple pour montrer les mécanisme de remplissage des hashmap
+ * @author Vincent
+ *
+ */
 public class CreationMap {
 
 	public static void main(String[] args) {

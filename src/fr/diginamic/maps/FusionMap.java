@@ -2,7 +2,12 @@ package fr.diginamic.maps;
 
 import java.util.HashMap;
 import java.util.Iterator;
-
+/**
+ * Classe pour montrer la facilité d'usage à la fusion des Hashmap
+ * 
+ * @author Vincent
+ *
+ */
 public class FusionMap {
 
 	public static void main(String[] args) {
@@ -24,7 +29,14 @@ public class FusionMap {
 		afficherMap(map);
 		
 	}
-	
+	/**et cette horreur ben c'est ce que j'avais crée pour faire un truc qui se fait en deux lignes
+	 * 
+	 * @param <K>
+	 * @param <V>
+	 * @param map1
+	 * @param map2
+	 * @return
+	 */
 	public static <K, V> HashMap<K, V> fusionMap(HashMap<K, V>map1, HashMap<K, V>map2){
 		HashMap<K, V> map = new HashMap<>();
 		Iterator <K> iterKey = map1.keySet().iterator();
@@ -45,7 +57,13 @@ public class FusionMap {
 		return map;
 		
 	}
-	
+	/**
+	 * pour afficher les hashmap
+	 * 
+	 * @param <K>
+	 * @param <V>
+	 * @param map1
+	 */
 public static <K, V> void afficherMap(HashMap<K, V>map1) {
 		
 		for(K key:map1.keySet()) {	

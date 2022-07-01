@@ -7,7 +7,12 @@ import fr.diginamic.entities.Ville;
 import fr.diginamic.recensement.Recensement;
 
 
-
+/**
+ * pour manipuler tester les mécanismes des hashmap
+ * 
+ * @author Vincent
+ *
+ */
 public class mapVilles {
 	public static HashMap<String, Ville> data;
 	public static String dataFile = "F:\\dev\\approche_objet\\data";
@@ -44,7 +49,12 @@ public class mapVilles {
 		afficherMap(data);
 		
 	}
-	
+	/**
+	 * pour afficher un hashmap
+	 * @param <K>
+	 * @param <V>
+	 * @param map1
+	 */
 public static <K, V> void afficherMap(HashMap<K, V>map1) {
 		
 		for(K key:map1.keySet()) {	

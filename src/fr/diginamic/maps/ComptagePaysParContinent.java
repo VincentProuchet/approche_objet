@@ -6,6 +6,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * cette classe sert d'exemple à l'usage des hashmap
+ * 
+ * @author Vincent
+ *
+ */
 public class ComptagePaysParContinent {
 
 	public static void main(String[] args) {
@@ -30,17 +36,20 @@ public class ComptagePaysParContinent {
 		}
 
 	}
-/**version corrigé
- * 
- * @param pays
- * @return
- */
+
+	/**
+	 * version corrigé
+	 * 
+	 * @param pays
+	 * @return
+	 */
 	public static HashMap<String, Integer> comptageComptinent(List<Pays> pays) {
 		HashMap<String, Integer> comptagePays = new HashMap<>();
 
 		for (Pays p : pays) {
 			String continent = p.continent;
-			Integer compteur = comptagePays.get(continent);
+			Integer compteur = comptagePays.get(continent); // parce que le get renvoie un null si aucune correspondance
+															// n'est trouvé
 			if (compteur == null) {
 				comptagePays.put(continent, 1);
 			} else {
@@ -52,11 +61,13 @@ public class ComptagePaysParContinent {
 
 		return comptagePays;
 	}
-/**
- * Version présenté par Vincent prouchet
- * @param pays
- * @return
- */
+
+	/**
+	 * Version présenté par Vincent prouchet
+	 * 
+	 * @param pays
+	 * @return
+	 */
 	public static HashMap<String, Integer> comptageComptinentVincent(List<Pays> pays) {
 		HashMap<String, Integer> comptagePays = new HashMap<>();
 		Iterator<String> iterKey;
@@ -103,8 +114,9 @@ public class ComptagePaysParContinent {
 
 		return comptagePays;
 	}
-	/**Methode présenté par Nabile Ramani
-	 * Le mec est vraiment bon
+
+	/**
+	 * Méthode présenté par Nabile Ramani Le mec est vraiment bon
 	 * 
 	 * @param pays
 	 * @return
@@ -114,12 +126,13 @@ public class ComptagePaysParContinent {
 		Map<String, Integer> map = new HashMap<>();
 		for (Pays p : pays) {
 			String key = p.continent;// parce que c'est le nom du continent qui nous intéresse
-			// on tente de recupérer l'information avec un renvoi de  valeur par défaut si null
+			// on tente de recupérer l'information avec un renvoi de valeur par défaut si
+			// null
 			Integer count = map.getOrDefault(key, 0);
 			// incrémentation
 			count++;
 			// écrasement
-			map.put(key, count);// si la valeur key n'existe pas elle seras crée 
+			map.put(key, count);// si la valeur key n'existe pas elle seras crée
 		}
 		return map;
 	}
