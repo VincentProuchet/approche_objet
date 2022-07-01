@@ -2,11 +2,17 @@ package fr.diginamic.operations;
 
 /**
  * TP J3 * @author Vincent
- *
+ * représente un ensemble de valeur dont on souhaite la moyenne
  */
 public class CalculMoyenne {
+
+	/** ensemble de valeurs */
 	double[] valeurs;
 
+	/** Méthode de gestion du tableau 
+	 * 	agrandiras le tableau à chaque ajout de valeur
+	 * @param it
+	 */
 	public void Push(double it) {
 		// si le tableau n'a pas de taille
 		if (valeurs == null) {
@@ -31,6 +37,11 @@ public class CalculMoyenne {
 		}
 	}
 
+	/** calcule et retourne la moyenne des valeurs du
+	 * tableau de valeurs de l'instance 
+	 * 
+	 * @return resultat
+	 */
 	public double Calcul() {
 		double moyenne = 0;
 

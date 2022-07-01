@@ -1,10 +1,23 @@
 package fr.diginamic.operations;
 
+/**
+ * représente un opération
+ * 
+ * @author Vincent
+ *
+ */
 public class Operations {
-	
 
+	/**
+	 * Exécute l'opération demandée entre les valeurs passées en paramètres
+	 * 
+	 * @param a         premier nombre
+	 * @param b         deuxième nombre
+	 * @param operateur / calcul à produire entre les valeurs
+	 * @return resultat du calcul
+	 */
 	public static double Calcul(double a, double b, char operator) {
-		
+
 		double resultat = 0;
 
 		switch (operator) {
