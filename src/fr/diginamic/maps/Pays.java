@@ -1,5 +1,6 @@
 package fr.diginamic.maps;
-/** Représente un pays
+/** 
+ * Représente un pays
  * 
  * @author Vincent
  *

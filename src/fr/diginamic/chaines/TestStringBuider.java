@@ -31,7 +31,7 @@ public class TestStringBuider {
 		}
 		fin = System.currentTimeMillis();
 		
-		
+		System.out.println(concat);
 		System.out.println("Le concat ");
 		System.out.println("l'opération à durée :" + (fin-debut));
 		

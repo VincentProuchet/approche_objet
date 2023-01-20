@@ -3,9 +3,18 @@ package fr.diginamic.recensement;
 import java.util.Scanner;
 
 import fr.diginamic.entities.Ville;
-
+/**
+ * Classe de traitement 
+ * calcule la population d'un département
+ * @author Vincent
+ *
+ */
+/**
+ * @author Vincent
+ *
+ */
 public class PopulationDepartement extends MenuService {
-	private int population;
+	private int population = -1 ;
 	private String departementRecherchee;
 	
 
@@ -33,7 +42,7 @@ public class PopulationDepartement extends MenuService {
 		}
 
 	}
-
+@Override
 	public int getResultat() {
 		return this.population ;
 	}

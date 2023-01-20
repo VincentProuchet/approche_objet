@@ -8,20 +8,19 @@ import java.time.LocalTime;
 import java.time.Period;
 import java.time.ZonedDateTime;
 import java.util.Date;
-
-import javax.print.attribute.standard.DateTimeAtCompleted;
 /**Classe pour tester l'API Date de Java
  * et voir que c'est pas vraiment mieux que Date
  * @author Vincent
  *
  */
 public class TestDates {
-
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		
 		Date dateDuJour = new Date();
 		
 		System.out.println(dateDuJour.getDate()+"/"+ dateDuJour.getMonth()+"/"+  dateDuJour.getYear() );
+		
 		
 		Date date = new Date(115-1900,5,19,23,59,31);
 		// pour les transformer en local dateTime

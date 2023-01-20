@@ -1,5 +1,13 @@
 package fr.diginamic.testexceptions;
 
+/**
+ * Exception 
+ * type reflection
+ * lancée lors d'une erreur lors d'une tentative de reflexion sur une classe
+ * 
+ * @author Vincent
+ *
+ */
 public class ReflectionException extends Exception {
 
 	/**

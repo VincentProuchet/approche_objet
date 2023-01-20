@@ -10,17 +10,34 @@ import java.util.List;
 
 import fr.diginamic.entities.Ville;
 
+/**
+ * Classe principale de l'appilcation
+ * Contient les données 
+ * @author Vincent
+ *
+ */
 public class Recensement {
+	/** villes */
 	private HashSet<Ville> villes;
+	/** departements */
 	private HashSet<Departement> departements;
+	/** regions */
 	private HashSet<Region> regions;
+	/** etat */
 	private EtatRecensement etat;
 
+	/** currentRegion */
 	private Region currentRegion;
+	/** currentDepartement */
 	private Departement currentDepartement;
 
+	/** fichierSource */
 	public static String fichierSource;
 
+	/** Constructeur
+	 * @param fichier
+	 * @throws IOException
+	 */
 	public Recensement(String fichier) throws IOException {
 		this.etat = EtatRecensement.PremiersEnregistrements;
 		this.villes = new HashSet<Ville>();
@@ -31,6 +48,9 @@ public class Recensement {
 
 	}
 
+	/**
+	 * @throws IOException
+	 */
 	private void chargerDonnees() throws IOException {
 		List<String> liste = Recensement.getFile(Recensement.fichierSource);
 
@@ -106,6 +126,9 @@ public class Recensement {
 		}
 	}
 
+	/**
+	 * @param ville
+	 */
 	private void Region(Ville ville) {
 		EtatRecensement etatPecedant = this.etat;  
 		// on vérifie la region demandé avec le courant
@@ -205,14 +228,23 @@ public class Recensement {
 		}
 	}
 
+	/**
+	 * @return
+	 */
 	public HashSet<Ville> getVilles() {
 		return this.villes;
 	}
 
+	/**
+	 * @return
+	 */
 	public HashSet<Region> getRegions() {
 		return this.regions;
 	}
 
+	/**
+	 * @return
+	 */
 	public HashSet<Departement> getDepartement() {
 		return this.departements;
 	}

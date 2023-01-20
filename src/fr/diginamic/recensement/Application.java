@@ -5,20 +5,37 @@ import java.util.Scanner;
 
 import com.github.lalyos.jfiglet.FigletFont;
 
+/** 
+ * Classe principale du recensement
+ * @author Vincent
+ *
+ */
 public class Application {
 	//// messages ////
+	/** messageDeBienvenue */
 	static String messageDeBienvenue = "Service de recensement.";
 
 
+	/** instance unique de l'application */
 	static Application self;
+	/** etat de l'application permet un controle plus fin qu'avec de booleen  */
 	private ApplicationState etat = ApplicationState.Demarrage;
+	/** choix de l'utilisateur */
 	private int choixMenu;
+	/** scanner pour les entrée utilisateur*/
 	private Scanner scanner;
+	/** repertoire de stockage des données */
 	public String dataFile = "F:\\dev\\approche_objet\\data";
+	/** nom du fichier de données */
 	public String fileName = "recensement.csv";
+	/** instance de chargement des données depuis le fichier de données */
 	private Recensement enregistrements;
 
 	
+	/**
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
 
 		System.out.println(FigletFont.convertOneLine(messageDeBienvenue));

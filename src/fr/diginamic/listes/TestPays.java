@@ -34,7 +34,7 @@ public class TestPays {
 		));
 		Iterator<Pays> iter = pays.iterator();
 		Pays first =iter.next();		
-		Pays plusGrandPIB = first;
+		
 		Pays plusPetitPIB = first;
 		Pays plusGrandPIBParHabitant = first;
 		

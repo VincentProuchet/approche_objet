@@ -4,8 +4,15 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * @author Vincent
+ *
+ */
 public class StringUtilsTest {
 
+	/**
+	 * 
+	 */
 	@Test
 	public void testDeDistance1() {
 
@@ -14,6 +21,9 @@ public class StringUtilsTest {
 		assertEquals(1, StringUtils.levenshteinDistance("avion", "aviron"));
 	}
 
+	/**
+	 * 
+	 */
 	@Test
 	public void testDeDistance2() {
 
@@ -21,6 +31,9 @@ public class StringUtilsTest {
 		assertEquals(2, StringUtils.levenshteinDistance("distance", "instance"));
 
 	}
+	/**
+	 * 
+	 */
 	@Test (expected = NullPointerException.class)
 	public void testNull() {
 		assertEquals(null,StringUtils.levenshteinDistance(null, null));

@@ -4,8 +4,14 @@ import java.util.Scanner;
 
 import fr.diginamic.entities.Ville;
 
+/**
+ * Classe de traitement 
+ * 
+ * @author Vincent
+ *
+ */
 public class PopulationRegion extends MenuService {
-	private int population;
+	private int population = -1;
 	private String regionRecherchee;
 
 	@Override
@@ -38,6 +44,8 @@ public class PopulationRegion extends MenuService {
 		}
 		
 	}
+	
+	@Override
 	public int getResultat() {
 		return this.population ;
 	}

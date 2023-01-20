@@ -28,7 +28,7 @@ public class FusionListe {
 		System.out.println("_________________________________________________________");
 		
 		// mais sinon on pouvais faire 
-		List<String>list4 = new ArrayList();
+		List<String>list4 = new ArrayList<String>();
 		list4.addAll(liste1);
 		list4.addAll(liste2);
 		for(String nb : list3){

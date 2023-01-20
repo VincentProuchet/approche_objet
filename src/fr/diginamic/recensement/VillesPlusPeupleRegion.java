@@ -11,14 +11,24 @@ import fr.diginamic.entities.Ville;
 import fr.diginamic.tri.TriType;
 import fr.diginamic.tri.VilleComparator;
 
-public class VillesPlusPeupleRegion extends MenuService{
+/**
+ * Classe de traitement
+ * 
+ * calcule la ville la plus peuplé d'une région
+ * 
+ * @author Vincent
+ *
+ */
+public class VillesPlusPeupleRegion extends MenuService {
 
+	/** villes */
 	public List<Ville> villes;
+	/** region */
 	public Region region;
+	/** listeSize */
 	public int listeSize = 10;
+	/** dapartementRecherchee */
 	public String dapartementRecherchee;
-
-	
 
 	@Override
 	public void traiter(Recensement recensement, Scanner scanner) {
@@ -42,11 +52,12 @@ public class VillesPlusPeupleRegion extends MenuService{
 
 	}
 
+	@Override
 	public void afficher() {
 
 		if (this.region != null) {
-			
-			System.out.println(" Région trouvée : " + this.region.nom()+"\n"
+
+			System.out.println(" Région trouvée : " + this.region.nom() + "\n"
 					+ "___________________________________________________");
 			Iterator<Ville> iterVille = this.villes.iterator();
 

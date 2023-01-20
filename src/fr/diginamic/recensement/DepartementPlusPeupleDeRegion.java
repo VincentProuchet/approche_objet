@@ -10,6 +10,13 @@ import java.util.Scanner;
 import fr.diginamic.tri.DepartmentComparator;
 import fr.diginamic.tri.TriType;
 
+/**
+ * classe de traitement pour la recherche du département le plus peuplé d'une
+ * région
+ * 
+ * @author Vincent
+ *
+ */
 public class DepartementPlusPeupleDeRegion extends MenuService {
 	public List<Departement> departements;
 	public Region region;
@@ -27,7 +34,7 @@ public class DepartementPlusPeupleDeRegion extends MenuService {
 		for (Region r : recensement.getRegions()) {
 			if (r.nom().equalsIgnoreCase(regionRecherchee) || r.code().equals(regionRecherchee)) {
 				this.region = r;
-				
+
 				break;
 			}
 		}
@@ -37,12 +44,12 @@ public class DepartementPlusPeupleDeRegion extends MenuService {
 		}
 
 	}
-
+	@Override
 	public void afficher() {
 
 		if (this.region != null) {
-			
-			System.out.println("Pour " + this.region.nom()+"\n");
+
+			System.out.println("Pour " + this.region.nom() + "\n");
 			Iterator<Departement> iterDepartement = this.departements.iterator();
 
 			int i = 0;

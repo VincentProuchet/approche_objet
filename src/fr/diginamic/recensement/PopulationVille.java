@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 import fr.diginamic.entities.Ville;
 
+/**
+ * Classe de traitement
+ * Recherche une ville par le nom
+ * @author Vincent
+ *
+ */
 public class PopulationVille extends MenuService {
 	private Ville resultat;
 	private String villeRecherchee;
@@ -20,6 +26,10 @@ public class PopulationVille extends MenuService {
 		}
 
 	}
+	/**
+	 * GETTER 
+	 * @return la ville recherchée
+	 */
 	public Ville getVille() {
 		return this.resultat;
 	}

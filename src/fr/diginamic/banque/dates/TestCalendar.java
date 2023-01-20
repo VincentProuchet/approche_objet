@@ -11,7 +11,7 @@ import java.util.Locale;
  *
  */
 public class TestCalendar {
-
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		Calendar cal = Calendar.getInstance();
 		cal.set(2016, 4, 19, 23, 59, 30);

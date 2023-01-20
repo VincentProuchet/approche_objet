@@ -11,10 +11,17 @@ import fr.diginamic.entities.Ville;
 import fr.diginamic.tri.RegionComparator;
 import fr.diginamic.tri.TriType;
 
+/**
+ * Classe de traitement 
+ * Calcule et trie les régions les plus peuplées 
+ * @author Vincent
+ *
+ */
 public class RegionsPlusPeuplee extends MenuService {
 	public List<Region> regions;
 	public int listeSize = 10;
-
+	private static String separator = "-------------------------------------------------\n" ;
+	
 	public RegionsPlusPeuplee() {
 	}
 
@@ -24,6 +31,7 @@ public class RegionsPlusPeuplee extends MenuService {
 		this.regions.sort(new RegionComparator(TriType.ParPopulation));
 
 	}
+	@Override
 	public void afficher() {
 		Iterator<Region> iterRegion = this.regions.iterator();
 		
@@ -41,7 +49,11 @@ public class RegionsPlusPeuplee extends MenuService {
 	
 	
 	
-	public void afficherTout() {
+	/**
+	 * afficheras une liste formatée de toutes les régions en mémoire
+	 * utilisé pour le débugging
+	 */
+	public void afficherTout() {	
 		for (Region r: this.regions) {
 			System.out.println(r.nom()+"\n"
 					+ "-------------------------------------------------"
@@ -55,9 +67,33 @@ public class RegionsPlusPeuplee extends MenuService {
 					System.out.println("\t\t"+v.getNom());
 				}
 			}
-			System.out.println("----------------------------------------------");
+			System.out.println(separator);
 		}
 		
+		
+	}
+	/**
+	 * refactoring de la fontion afficher
+	 * avec une string builder pour de meilleures performances
+	 */
+	public void afficherTout2() {
+		StringBuilder out =new StringBuilder();
+		for (Region r: this.regions) {
+				out.append(r.nom()).append("\n")
+					.append(separator)
+					;
+			for(Departement d:r.listeDepartement() ) {
+				out.append("\t").append(d.codeDepartement()).append("\n\n")
+						.append(separator)
+						;
+				
+				for(Ville v:d.villes()) {
+					out.append("\t\t").append(v.getNom()).append("\n");
+				}
+			}
+			out.append(separator);
+			System.out.println(out.toString());
+		}
 		
 	}
 

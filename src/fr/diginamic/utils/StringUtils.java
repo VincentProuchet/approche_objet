@@ -1,5 +1,7 @@
 package fr.diginamic.utils;
 
+import org.hamcrest.core.IsNull;
+
 /**
  * Classe qui fournit des services de traitements de chaines de caractères
  * 
@@ -8,14 +10,18 @@ package fr.diginamic.utils;
 public final class StringUtils {
 	/**
 	 * Retourne la distance de Levenshtein entre 2 chaines de caractères
-	 * 
+	 * la/les paramètres null  seront peuplées par défaut avec une chaine vide
 	 * @param lhs chaine 1
 	 * @param rhs chaine 2
 	 * @return distance
 	 */
 	public static int levenshteinDistance(CharSequence lhs, CharSequence rhs) {
-		
-		//@TODO coder une gestion des entrées nulles 
+		if (lhs == null) {
+			lhs = "";
+		}
+		if (rhs == null) {
+			rhs = "";
+		}
 		int len0 = lhs.length() + 1;
 		int len1 = rhs.length() + 1;
 		int[] cost = new int[len0];
@@ -38,5 +44,5 @@ public final class StringUtils {
 		}
 		return cost[len0 - 1];
 	}
-	 
+
 }

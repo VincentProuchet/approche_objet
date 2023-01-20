@@ -8,6 +8,10 @@ import geometrie.Cercle;
  */
 public class CercleFactory {
 	
+	/**
+	 * @param rayon
+	 * @return
+	 */
 	public static Cercle createNew(double rayon) {
 		
 		return new Cercle(rayon);

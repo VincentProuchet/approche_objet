@@ -4,6 +4,13 @@ import java.util.Comparator;
 
 import fr.diginamic.entities.Ville;
 
+/**
+ * Comparteur 
+ * compare les noms 
+ * utilise le comparateur de texte
+ * @author Vincent
+ *
+ */
 public class ComparatorNom implements Comparator<Ville> {
 
 	@Override

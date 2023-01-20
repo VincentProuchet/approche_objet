@@ -2,7 +2,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>approche_objet</groupId>
+	<groupId>fr.diginamic</groupId>
 	<artifactId>approche_objet</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>Cours de dévelopement JAVA FULL STACK DIGINAMIC</description>
@@ -15,6 +15,43 @@
 				<configuration>
 					<release>17</release>
 				</configuration>
+			</plugin>
+			<!--
+			 se plugin se chage de créer le manifest du jar 
+			indiquant la classe d'entrée du projet pour le démarrage de l'application
+			ici la classe App du package dev
+			 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>dev.App</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<!-- configuration du plugin shade -->
+			<!-- 
+				ce pugin se charge d'ajourter au Jar toutes les librairies de dépendence
+				pour que l'application puisse être standalone
+				phase package
+				goal shade
+			-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

@@ -11,11 +11,22 @@ import fr.diginamic.entities.Ville;
 import fr.diginamic.tri.TriType;
 import fr.diginamic.tri.VilleComparator;
 
+/**
+ * Classe de traitment 
+ * Calcule les villes les plus peuplées d'un département
+ * 
+ * @author Vincent
+ *
+ */
 public class VillePlusPleupleDeDepartement extends MenuService{
 
+	/** villes */
 	public List<Ville> villes;
+	/** departement */
 	public Departement departement;
+	/** listeSize */
 	public int listeSize = 10;
+	/** dapartementRecherchee */
 	public String dapartementRecherchee;
 
 	

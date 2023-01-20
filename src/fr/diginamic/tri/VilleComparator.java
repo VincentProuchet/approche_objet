@@ -4,16 +4,32 @@ import java.util.Comparator;
 
 import fr.diginamic.entities.Ville;
 
+/**
+ * @author Vincent
+ *
+ */
 public class VilleComparator implements Comparator<Ville> {
 
+	/** trierPar */
 	private TriType trierPar;
+	/** v1 */
 	private Ville v1;
+	/** v2 */
 	private Ville v2;
 
+	/**
+	 * Constructeur
+	 * 
+	 * @param tri
+	 */
 	public VilleComparator(TriType tri) {
 		this.trierPar = tri;
 	}
 
+	/**
+	 * Constructeur
+	 * 
+	 */
 	public VilleComparator() {
 		this.trierPar = TriType.ParNom;
 	}
@@ -26,11 +42,11 @@ public class VilleComparator implements Comparator<Ville> {
 		case ParPopulation:
 			return this.parPopulation();
 		case ParNom:
-			return this.parOrdreAlphabetique();
+			return this.v1.getNom().compareTo(this.v2.getNom());
 		case ParRegion:
-			return this.parRegion();
+			return this.v1.getCodeDeRegion().compareTo(this.v2.getCodeDeRegion());
 		case ParDepartement:
-			return this.parDepartement();
+			return this.v1.getCodeDepartement().compareTo(this.v2.getCodeDepartement());
 		default:
 			return 0;
 
@@ -38,22 +54,15 @@ public class VilleComparator implements Comparator<Ville> {
 
 	}
 
+	/**
+	 * @return
+	 */
 	private int parPopulation() {
 		if (v1.getPopulationTotale() > v2.getPopulationTotale()) {
 			return -1;
 		} else if (v1.getPopulationTotale() < v2.getPopulationTotale()) {
 			return 1;
 		}
-
 		return 0;
-	}
-	private int parOrdreAlphabetique() {
-		return this.v1.getNom().compareTo(this.v2.getNom());
-	}
-	private int parDepartement() {
-		return this.v1.getCodeDepartement().compareTo(this.v2.getCodeDepartement());
-	}
-	private int parRegion() {
-		return this.v1.getCodeDeRegion().compareTo(this.v2.getCodeDeRegion());
 	}
 }

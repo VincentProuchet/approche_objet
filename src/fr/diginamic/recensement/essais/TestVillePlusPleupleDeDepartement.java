@@ -14,7 +14,7 @@ public class TestVillePlusPleupleDeDepartement {
 	public static void main(String[] args) throws IOException {
 		enregistrements = new Recensement(dataFile + "\\" + fileName);
 		
-		TestRecensement rec = new TestRecensement(enregistrements);
+		new TestRecensement(enregistrements);
 		VillePlusPleupleDeDepartement regions = new VillePlusPleupleDeDepartement();
 		regions.traiter(enregistrements, new Scanner("    34      "));
 		regions.afficher();

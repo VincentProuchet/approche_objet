@@ -10,7 +10,7 @@ public class TestOperations {
 
 	public static void main(String[] args) {
 		
-		double resultat = 0; 
+		 
 		
 		System.out.println(Operations.Calcul(2,5,'*'));
 		

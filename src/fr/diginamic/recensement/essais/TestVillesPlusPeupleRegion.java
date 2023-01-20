@@ -15,7 +15,7 @@ public class TestVillesPlusPeupleRegion {
 
 			enregistrements = new Recensement(dataFile + "\\" + fileName);
 			
-			TestRecensement rec = new TestRecensement(enregistrements);
+			new TestRecensement(enregistrements);
 			VillesPlusPeupleRegion regions = new VillesPlusPeupleRegion();
 			regions.traiter(enregistrements, new Scanner("    Occitanie     "));
 			regions.afficher();

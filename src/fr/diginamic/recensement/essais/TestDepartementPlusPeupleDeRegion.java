@@ -5,7 +5,12 @@ import java.util.Scanner;
 
 import fr.diginamic.recensement.DepartementPlusPeupleDeRegion;
 import fr.diginamic.recensement.Recensement;
-
+/**
+ * classe de test 
+ * 
+ * @author Vincent
+ *
+ */
 public class TestDepartementPlusPeupleDeRegion {
 
 	public static String dataFile = "F:\\dev\\approche_objet\\data";
@@ -15,7 +20,7 @@ public class TestDepartementPlusPeupleDeRegion {
 	public static void main(String[] args) throws IOException {
 		enregistrements = new Recensement(dataFile + "\\" + fileName);
 		
-		TestRecensement rec = new TestRecensement(enregistrements);
+		new TestRecensement(enregistrements);
 		DepartementPlusPeupleDeRegion regions = new DepartementPlusPeupleDeRegion();
 		regions.traiter(enregistrements, new Scanner("    OccitAnie      "));
 		regions.afficher();

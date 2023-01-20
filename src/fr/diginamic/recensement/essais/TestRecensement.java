@@ -23,7 +23,7 @@ public class TestRecensement {
 		String fileName = "recensement.csv";
 		
 		Recensement records = new Recensement(dataFile+"\\"+fileName);		
-		TestRecensement rec = new TestRecensement(records);
+		new TestRecensement(records);
 		
 	}
 	public TestRecensement(Recensement records) {
